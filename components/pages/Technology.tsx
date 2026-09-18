@@ -6,7 +6,11 @@ export default function Technology() {
     <>
 
 <section className="phead">
-<img alt="An AGS recording unit on rocky desert ground" src="/assets/recorder.jpg" />
+<div className="vbg">
+<video aria-label="AGS field seismic data QC and processing systems" autoPlay loop muted playsInline poster="/assets/vid-technology-poster.jpg" preload="metadata">
+<source src="/assets/vid-technology-bg.mp4" type="video/mp4" />
+</video>
+</div>
 <div className="hero-scrim"></div>
 <div className="wrap phead-in">
 <p className="crumb"><a href="/">Home</a> / Technology &amp; fleet</p>

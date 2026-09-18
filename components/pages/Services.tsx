@@ -5,7 +5,11 @@ export default function Services() {
     <>
 
 <section className="phead">
-<img alt="AGS vibroseis trucks on a survey line" src="/assets/vibeline.jpg" />
+<div className="vbg">
+<video aria-label="AGS field geophone layout and testing equipment" autoPlay loop muted playsInline poster="/assets/vid-services-poster.jpg" preload="metadata">
+<source src="/assets/vid-services-bg.mp4" type="video/mp4" />
+</video>
+</div>
 <div className="hero-scrim"></div>
 <div className="wrap phead-in">
 <p className="crumb"><a href="/">Home</a> / Services</p>

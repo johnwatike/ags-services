@@ -7,7 +7,7 @@ export default function Home() {
 
 <section className="hero-pin" id="heroPin">
 <div className="hero-stage">
-<div className="hslide on" data-i="0"><video aria-label="An AGS vibroseis convoy moving through a populated area" autoPlay loop muted playsInline poster="/assets/vid-convoy-poster.jpg" preload="metadata"><source src="/assets/vid-convoy.webm" type="video/webm" /></video></div>
+<div className="hslide on" data-i="0"><video aria-label="AGS seismic data QC and processing at field acquisition site" autoPlay loop muted playsInline poster="/assets/vid-technology-poster.jpg" preload="metadata"><source src="/assets/vid-technology-bg.mp4" type="video/mp4" /></video></div>
 <div className="hslide" data-i="1"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-desert-poster.jpg" preload="none"><source src="/assets/vid-desert.webm" type="video/webm" /></video></div>
 <div className="hslide" data-i="2"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-recorder-poster.jpg" preload="none"><source src="/assets/vid-recorder.webm" type="video/webm" /></video></div>
 <div className="hslide" data-i="3"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-water-poster.jpg" preload="none"><source src="/assets/vid-water.webm" type="video/webm" /></video></div>

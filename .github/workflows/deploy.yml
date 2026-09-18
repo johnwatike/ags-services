@@ -1,0 +1,39 @@
+name: Deploy to Production Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Build and Deploy on Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            set -e
+            echo "Pulling latest code from GitHub..."
+            cd /opt/ags-services
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo "Rebuilding and restarting docker container..."
+            docker compose up -d --build --remove-orphans
+
+            echo "Verifying deployment..."
+            sleep 5
+            docker ps -f name=ags-services
+            curl -sI http://127.0.0.1:3085 | grep -E "HTTP/(1.1|2) 200"
+            echo "Deployment successful!"
