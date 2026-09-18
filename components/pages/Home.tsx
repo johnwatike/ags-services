@@ -7,11 +7,11 @@ export default function Home() {
 
 <section className="hero-pin" id="heroPin">
 <div className="hero-stage">
-<div className="hslide on" data-i="0"><video aria-label="AGS seismic data QC and processing at field acquisition site" autoPlay loop muted playsInline poster="/assets/vid-technology-poster.jpg" preload="metadata"><source src="/assets/vid-technology-bg.mp4" type="video/mp4" /></video></div>
-<div className="hslide" data-i="1"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-desert-poster.jpg" preload="none"><source src="/assets/vid-desert.webm" type="video/webm" /></video></div>
-<div className="hslide" data-i="2"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-recorder-poster.jpg" preload="none"><source src="/assets/vid-recorder.webm" type="video/webm" /></video></div>
-<div className="hslide" data-i="3"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-water-poster.jpg" preload="none"><source src="/assets/vid-water.webm" type="video/webm" /></video></div>
-<div className="hslide" data-i="4"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-forest-poster.jpg" preload="none"><source src="/assets/vid-forest.webm" type="video/webm" /></video></div>
+<div className="hslide on" data-i="0"><video aria-label="AGS seismic data QC and processing at field acquisition site" autoPlay loop muted playsInline poster="/assets/vid-technology-poster.jpg?v=3" preload="metadata"><source src="/assets/vid-technology-bg.mp4?v=3" type="video/mp4" /></video></div>
+<div className="hslide" data-i="1"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-desert-poster.jpg?v=3" preload="none"><source src="/assets/vid-desert.webm?v=3" type="video/webm" /></video></div>
+<div className="hslide" data-i="2"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-recorder-poster.jpg?v=3" preload="none"><source src="/assets/vid-recorder.webm?v=3" type="video/webm" /></video></div>
+<div className="hslide" data-i="3"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-water-poster.jpg?v=3" preload="none"><source src="/assets/vid-water.webm?v=3" type="video/webm" /></video></div>
+<div className="hslide" data-i="4"><video aria-hidden="true" loop muted playsInline poster="/assets/vid-forest-poster.jpg?v=3" preload="none"><source src="/assets/vid-forest.webm?v=3" type="video/webm" /></video></div>
 <div className="hero-scrim"></div>
 <canvas aria-label="Animated seismic wavefield propagating through layered strata" id="heroCanvas"></canvas>
 <div className="hero-body">

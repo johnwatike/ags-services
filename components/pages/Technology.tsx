@@ -7,8 +7,8 @@ export default function Technology() {
 
 <section className="phead">
 <div className="vbg">
-<video aria-label="AGS field seismic data QC and processing systems" autoPlay loop muted playsInline poster="/assets/vid-technology-poster.jpg" preload="metadata">
-<source src="/assets/vid-technology-bg.mp4" type="video/mp4" />
+<video aria-label="AGS field seismic data QC and processing systems" autoPlay loop muted playsInline poster="/assets/vid-technology-poster.jpg?v=3" preload="metadata">
+<source src="/assets/vid-technology-bg.mp4?v=3" type="video/mp4" />
 </video>
 </div>
 <div className="hero-scrim"></div>

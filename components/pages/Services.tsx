@@ -6,8 +6,8 @@ export default function Services() {
 
 <section className="phead">
 <div className="vbg">
-<video aria-label="AGS field geophone layout and testing equipment" autoPlay loop muted playsInline poster="/assets/vid-services-poster.jpg" preload="metadata">
-<source src="/assets/vid-services-bg.mp4" type="video/mp4" />
+<video aria-label="AGS field geophone layout and testing equipment" autoPlay loop muted playsInline poster="/assets/vid-services-poster.jpg?v=3" preload="metadata">
+<source src="/assets/vid-services-bg.mp4?v=3" type="video/mp4" />
 </video>
 </div>
 <div className="hero-scrim"></div>

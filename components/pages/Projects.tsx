@@ -7,8 +7,8 @@ export default function Projects() {
 
 <section className="phead">
 <div className="vbg">
-<video aria-label="AGS field crew laying cables and equipment along shallow water and river transition zone" autoPlay loop muted playsInline poster="/assets/vid-projects-poster.jpg" preload="metadata">
-<source src="/assets/vid-projects-bg.mp4" type="video/mp4" />
+<video aria-label="AGS field crew laying cables and equipment along shallow water and river transition zone" autoPlay loop muted playsInline poster="/assets/vid-projects-poster.jpg?v=3" preload="metadata">
+<source src="/assets/vid-projects-bg.mp4?v=3" type="video/mp4" />
 </video>
 </div>
 <div className="hero-scrim"></div>
