@@ -1,0 +1,9 @@
+services:
+  ags-services:
+    build: .
+    container_name: ags-services
+    restart: always
+    ports:
+      - "127.0.0.1:3085:3000"
+    environment:
+      - NODE_ENV=production
