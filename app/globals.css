@@ -1,5 +1,4 @@
 /* AGS design system — white & green. Tokens on :root, single committed light theme. */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
 :root{
   --white:#FFFFFF;
@@ -18,9 +17,9 @@
   --green-wash:#E8F3EC;
   --sun:#D8A22A;
 
-  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
-  --f-body:'IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif;
-  --f-mono:'IBM Plex Mono','SFMono-Regular',Menlo,Consolas,monospace;
+  --f-display:var(--f-display, 'Archivo','Helvetica Neue',Arial,sans-serif);
+  --f-body:var(--f-body, 'IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif);
+  --f-mono:var(--f-mono, 'IBM Plex Mono','SFMono-Regular',Menlo,Consolas,monospace);
 
   --gut:clamp(18px,3.4vw,64px);
   --maxw:1560px;
@@ -535,7 +534,7 @@ input[type=range]:focus-visible{box-shadow:0 0 0 4px rgba(15,122,74,.2)}
 
 /* ───────── responsive ───────── */
 @media (max-width:1180px){
-  .nav-links a{padding:9px 9px;font-size:12.8px}
+  .nav-links a{padding:8px 8px;font-size:12.5px}
   .cards{grid-template-columns:repeat(2,1fr)}
   .people{grid-template-columns:repeat(3,1fr)}
   .gal{grid-template-columns:repeat(3,1fr)}
@@ -552,13 +551,37 @@ input[type=range]:focus-visible{box-shadow:0 0 0 4px rgba(15,122,74,.2)}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
+  :root{
+    --nav-h:64px;
+    --chrome:92px;
+  }
+  .nav-in{height:64px}
   .cards,.people,.f2,.foot-grid{grid-template-columns:1fr}
   .gal{grid-template-columns:repeat(2,1fr)}
   .gal .wide{grid-column:span 2}
   .hero{min-height:auto}
-  .scrub{height:380vh}
-  .canvas-card{min-height:360px}
+  .scrub{height:320vh}
+  .survey{height:240vh}
+  .tl{height:420vh}
+  .canvas-card{min-height:300px}
   .pin small{display:none}
+  .band{padding-block:clamp(40px,6vw,68px)}
+  .band-tight{padding-block:clamp(26px,3.5vw,44px)}
+  .hero-in h1{font-size:clamp(1.9rem,8vw,2.5rem);line-height:1.1}
+  .phead-in h1{font-size:clamp(1.8rem,7vw,2.4rem)}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .stat{padding:18px 16px}
+  .stat b{font-size:clamp(1.8rem,3vw,2.3rem)}
+  .card-body{padding:18px 18px 22px}
+  .prog .pb{padding:16px 16px 20px}
+  .topbar-in{gap:12px;justify-content:space-between;font-size:9.5px}
+  .foot-bot{flex-direction:column;gap:8px}
+}
+@media (max-width:380px){
+  .hero-strip-in{grid-template-columns:1fr;gap:10px}
+  .stats{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr}
+  .gal .wide{grid-column:span 1}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
