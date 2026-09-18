@@ -1,0 +1,26 @@
+{
+  "name": "ags-3d-website",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Africa Geophysical Services \u2014 concept site. Next.js App Router + three.js.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "preview:static": "npx --yes serve public"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.17",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.128.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/three": "^0.128.0",
+    "typescript": "^5.7.0"
+  }
+}

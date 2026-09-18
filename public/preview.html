@@ -1,0 +1,2573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Africa Geophysical Services (AGS) - land seismic data acquisition, survey design and processing across geographical boundaries. Headquartered in Muscat, Oman.">
+<meta name="theme-color" content="#083D27">
+<meta property="og:title" content="AGS - Africa Geophysical Services">
+<meta property="og:description" content="We read the ground, layer by layer. 2D, 3D, 3C and 4D land seismic acquisition and processing.">
+<meta property="og:type" content="website">
+<title>Africa Geophysical Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --white:#FFFFFF;
+  --paper:#F5F8F5;
+  --paper-2:#EDF2EE;
+  --ink:#0B1A13;
+  --ink-2:#22352B;
+  --muted:#5D7167;
+  --muted-2:#8B9B92;
+  --line:#DCE6DF;
+  --line-2:#C7D6CC;
+  --green:#0F7A4A;
+  --green-deep:#083D27;
+  --green-mid:#12935A;
+  --green-bright:#2FC47C;
+  --green-wash:#E8F3EC;
+  --sun:#D8A22A;
+
+  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif;
+  --f-mono:'IBM Plex Mono','SFMono-Regular',Menlo,Consolas,monospace;
+
+  --gut:clamp(18px,3.4vw,64px);
+  --maxw:1560px;
+  --topbar-h:33px;
+  --nav-h:72px;
+  --chrome:105px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--white);color:var(--ink);
+  font-family:var(--f-body);font-size:16.5px;line-height:1.65;font-weight:300;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--green);color:#fff}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:800;line-height:1.03;letter-spacing:-.028em;margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(2.45rem,6.2vw,5rem);font-weight:900}
+h2{font-size:clamp(1.85rem,4vw,3.15rem)}
+h3{font-size:clamp(1.05rem,1.6vw,1.3rem);font-weight:700;letter-spacing:-.012em}
+h4{font-size:1rem;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--green);flex:none;border-radius:2px}
+.eyebrow.on-dark{color:var(--green-bright)}
+.eyebrow.on-dark::before{background:var(--green-bright)}
+.lede{font-size:clamp(1.03rem,1.45vw,1.22rem);color:var(--ink-2);max-width:62ch;line-height:1.72;font-weight:300}
+.body-dim{color:var(--muted);max-width:66ch}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.05em}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut);width:100%}
+section{position:relative}
+.band{padding-block:clamp(60px,6.6vw,110px)}
+.band-tight{padding-block:clamp(38px,4vw,64px)}
+.band-paper{background:var(--paper)}
+.band-wash{background:var(--green-wash)}
+.band-ink{background:var(--green-deep);color:#EAF3ED}
+.band-ink h2,.band-ink h3{color:#fff}
+.band-ink .body-dim{color:#A9C6B6}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ───────── top bar + nav ───────── */
+.topbar{background:var(--green-deep);color:#BFDCCB;padding-top:env(safe-area-inset-top,0px);position:relative;z-index:75}
+.topbar-in{max-width:var(--maxw);margin-inline:auto;padding:8px var(--gut);display:flex;gap:22px;align-items:center;
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;flex-wrap:wrap}
+.topbar a{color:#EAF3ED;text-decoration:none}
+.topbar a:hover{color:var(--green-bright)}
+.topbar .sep{margin-left:auto}
+.nav{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.92);backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.nav.stuck{box-shadow:0 8px 28px -22px rgba(11,26,19,.5)}
+.nav.over{background:linear-gradient(180deg,rgba(6,34,22,.55),rgba(6,34,22,0));backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent;box-shadow:none}
+.nav.over .brand-txt b{color:#fff}
+.nav.over .brand-txt span{color:rgba(255,255,255,.62)}
+.nav.over .nav-links a{color:rgba(255,255,255,.88)}
+.nav.over .nav-links a:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav.over .nav-links a.active{color:var(--green-bright)}
+.nav.over .burger{border-color:rgba(255,255,255,.45);color:#fff}
+.nav-in{max-width:var(--maxw);margin-inline:auto;padding:0 var(--gut);display:flex;align-items:center;gap:20px;height:72px}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;flex:none}
+.brand-logo{height:42px;width:auto;flex:none;display:block}
+.brand-logo.on-dark{display:none}
+.nav.over .brand-logo.on-light{display:none}
+.nav.over .brand-logo.on-dark{display:block}
+.brand-txt{display:flex;flex-direction:column;line-height:1;padding-left:13px;border-left:1px solid var(--line)}
+.brand-txt span{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;line-height:1.4;white-space:nowrap}
+.nav.over .brand-txt{border-left-color:rgba(255,255,255,.3)}
+.nav.over .brand-txt span{color:rgba(255,255,255,.7)}
+.foot-logo{height:54px;width:auto;display:block}
+.creds{display:flex;align-items:center;gap:22px;margin-top:22px;flex-wrap:wrap}
+.creds img{height:44px;width:auto;opacity:.85;transition:opacity .25s}
+.creds img:hover{opacity:1}
+@media (max-width:1240px){.brand-txt{display:none}}
+@media (max-width:640px){.brand-logo{height:36px}}
+.nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav-links a{font-family:var(--f-body);font-size:13.5px;font-weight:500;letter-spacing:.01em;color:var(--ink-2);
+  text-decoration:none;padding:9px 13px;border-radius:3px;transition:background .18s,color .18s;white-space:nowrap}
+.nav-links a:hover{background:var(--green-wash);color:var(--green-deep)}
+.nav-links a.active{color:var(--green);font-weight:600}
+.nav-cta{font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;
+  color:#fff;background:var(--green);padding:12px 18px;border-radius:3px;font-weight:600;flex:none;
+  transition:background .2s,transform .2s;margin-left:8px}
+.nav-cta:hover{background:var(--green-mid);transform:translateY(-1px)}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line-2);color:var(--ink);
+  width:44px;height:40px;border-radius:3px;cursor:pointer;align-items:center;justify-content:center}
+.burger span{display:block;width:17px;height:9px;border-top:1.6px solid currentColor;border-bottom:1.6px solid currentColor}
+.drawer{display:none;border-top:1px solid var(--line);background:#fff;padding:10px var(--gut) 20px}
+.drawer.open{display:block}
+.drawer a{display:block;padding:13px 2px;border-bottom:1px solid var(--line);text-decoration:none;font-size:15px;font-weight:500}
+.drawer a:last-child{border-bottom:0}
+
+/* ───────── buttons ───────── */
+.btn{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  text-decoration:none;padding:15px 24px;border-radius:3px;display:inline-flex;align-items:center;gap:10px;
+  transition:transform .2s,background .2s,border-color .2s,color .2s;border:1px solid transparent}
+.btn-a{background:var(--green);color:#fff}
+.btn-a:hover{background:var(--green-mid);transform:translateY(-2px)}
+.btn-b{border-color:var(--line-2);color:var(--ink);background:#fff}
+.btn-b:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.btn-c{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.07)}
+.btn-c:hover{background:#fff;color:var(--green-deep);transform:translateY(-2px)}
+.btn-arrow::after{content:"→";font-family:var(--f-body);font-size:14px;line-height:1}
+
+/* ───────── hero ───────── */
+.hero{position:relative;min-height:min(92svh,860px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--green-deep)}
+.hero-media{position:absolute;inset:0;overflow:hidden}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform;filter:saturate(.86) contrast(1.04);display:block}
+.hero-scrim{position:absolute;inset:0;background:
+  linear-gradient(100deg,rgba(6,42,27,.96) 0%,rgba(7,52,33,.86) 36%,rgba(8,61,39,.42) 66%,rgba(8,61,39,.26) 100%),
+  linear-gradient(180deg,rgba(6,42,27,.62) 0%,transparent 26%,rgba(6,42,27,.72) 100%)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;z-index:4;width:100%;max-width:var(--maxw);margin-inline:auto;padding-block:clamp(48px,9vw,110px) clamp(30px,4vw,54px);color:#fff}
+.hero-in h1{color:#fff;max-width:17ch;margin-top:22px}
+.hero-in h1 em{font-style:normal;color:var(--green-bright)}
+.hero-in .lede{color:#D6E7DC;margin-top:24px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-strip{position:relative;z-index:4;border-top:1px solid rgba(255,255,255,.18);background:rgba(8,61,39,.55);backdrop-filter:blur(6px)}
+.hero-strip-in{max-width:var(--maxw);margin-inline:auto;padding:16px var(--gut);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#BFDCCB}
+.hero-strip b{display:block;font-family:var(--f-display);font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:4px}
+
+
+/* ═══════════ pinned hero slider ═══════════ */
+.hero-pin{position:relative;height:520vh;margin-top:calc(-1 * var(--chrome));background:var(--green-deep)}
+.hero-stage{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hslide{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
+.hslide.on{opacity:1}
+.hslide video,.hslide img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.05)}
+.hero-stage .hero-scrim{position:absolute;inset:0;z-index:2;background:
+  linear-gradient(100deg,rgba(5,36,23,.94) 0%,rgba(6,46,29,.82) 34%,rgba(8,61,39,.40) 64%,rgba(8,61,39,.24) 100%),
+  linear-gradient(180deg,rgba(5,30,19,.70) 0%,transparent 24%,rgba(5,30,19,.55) 62%,rgba(5,30,19,.92) 100%)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:3}
+.hero-body{position:relative;z-index:5;width:100%;padding-top:var(--chrome);display:flex;flex-direction:column;
+  justify-content:flex-end;flex:1;padding-bottom:clamp(26px,3.4vw,48px)}
+.hero-in{margin-top:auto;padding-bottom:clamp(16px,2.4vw,32px)}
+.hs-copy{color:#fff}
+.hs-copy.swap{animation:hsIn .74s cubic-bezier(.16,1,.3,1) both}
+@keyframes hsIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero-in h1{color:#fff;max-width:17ch;margin-top:20px;font-size:clamp(2.4rem,5.6vw,4.9rem)}
+.hero-in h1 em{font-style:normal;color:var(--green-bright)}
+.hero-in .lede{color:#D6E7DC;margin-top:20px;max-width:56ch}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:16px}
+.hdots{display:flex;gap:8px;align-items:center}
+.hdot{width:52px;height:3px;border-radius:3px;background:rgba(255,255,255,.26);overflow:hidden;flex:none}
+.hdot i{display:block;height:100%;width:0;background:var(--green-bright);border-radius:3px}
+.hdot.done i{width:100%}
+
+.cslider{border-top:1px solid rgba(255,255,255,.18);padding-top:14px;display:grid;
+  grid-template-columns:auto minmax(0,1fr);gap:clamp(14px,2.4vw,34px);align-items:center}
+.cslider-lbl{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);white-space:nowrap}
+.cwin{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 84%,transparent);
+  mask-image:linear-gradient(90deg,#000 0%,#000 84%,transparent)}
+.ctrack{display:flex;gap:clamp(20px,2.6vw,44px);will-change:transform;
+  transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.citem{flex:none;display:flex;flex-direction:column;gap:5px;padding:4px 0;opacity:.4;
+  transition:opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1)}
+.citem b{font-family:var(--f-display);font-weight:700;font-size:clamp(.95rem,1.35vw,1.15rem);color:#fff;white-space:nowrap;letter-spacing:-.01em}
+.citem span{font-family:var(--f-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);white-space:nowrap}
+.citem em{font-style:normal;font-family:var(--f-mono);font-size:9px;letter-spacing:.15em;color:var(--green-bright)}
+.citem.on{opacity:1;transform:translateY(-2px)}
+.citem.on b{color:#fff}
+.hero-cue{display:flex;align-items:center;gap:10px;flex:none;
+  font-family:var(--f-mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.hero-cue i{display:block;width:22px;height:1px;background:linear-gradient(90deg,transparent,var(--green-bright));font-style:normal}
+
+@media (max-width:980px){
+  .hero-pin{height:460vh}
+  .cslider{grid-template-columns:1fr;gap:10px}
+  .cslider-lbl{display:none}
+  .hero-cue{display:none}
+  .hero-in h1{font-size:clamp(2.05rem,8.4vw,2.9rem);margin-top:14px;max-width:none}
+  .hero-in .lede{font-size:15px;line-height:1.6;margin-top:14px;max-width:44ch}
+  .hero-actions{margin-top:20px;gap:10px}
+  .hero-actions .btn{padding:12px 15px;font-size:10px;letter-spacing:.1em}
+  .hero-body{padding-bottom:20px}
+  .hero-in{padding-bottom:14px}
+  .hrow{margin-bottom:12px}
+  .cslider{padding-top:11px}
+  .ctrack{gap:26px}
+}
+@media (max-width:640px){
+  .topbar-in > span:first-child{display:none}
+  .citem span{display:none}
+  .citem b{font-size:1rem}
+  .hdot{width:38px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-pin{height:auto;margin-top:calc(-1 * var(--chrome))}
+  .hero-stage{position:static;height:auto;min-height:100svh}
+  .hslide{position:absolute}
+  .ctrack{transition:none}
+}
+
+/* ───────── page head (inner pages) ───────── */
+.phead{position:relative;min-height:min(56svh,460px);display:flex;align-items:flex-end;overflow:hidden;background:var(--green-deep)}
+.phead img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+.phead .hero-scrim{background:linear-gradient(90deg,rgba(8,61,39,.94),rgba(8,61,39,.62) 60%,rgba(8,61,39,.42))}
+.phead-in{position:relative;z-index:3;width:100%;padding-block:clamp(56px,8vw,96px) clamp(28px,4vw,52px);color:#fff}
+.phead-in h1{color:#fff;font-size:clamp(2.1rem,5vw,4rem);margin-top:18px;max-width:18ch}
+.phead-in p{color:#CFE4D8;margin-top:18px;max-width:62ch}
+.crumb{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8FBDA3}
+.crumb a{text-decoration:none}
+.crumb a:hover{color:#fff}
+
+/* ───────── grid helpers ───────── */
+.shead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:clamp(22px,5vw,80px);align-items:end;margin-bottom:clamp(32px,4.5vw,60px)}
+.shead h2{margin-top:16px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(26px,5vw,76px);align-items:center}
+.two.top{align-items:start}
+
+/* ───────── stats ───────── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:#fff;padding:28px 24px}
+.stat b{display:block;font-family:var(--f-display);font-weight:900;font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-.035em;color:var(--green-deep);font-variant-numeric:tabular-nums}
+.stat b i{font-style:normal;color:var(--green);font-size:.5em;vertical-align:super;margin-left:2px}
+.stat small{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-top:10px;line-height:1.75}
+
+/* ───────── office grid ───────── */
+.geo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.geo-grid > div{background:#fff;padding:22px 20px}
+.geo-grid h3{margin-top:10px;font-size:1.05rem}
+.geo-grid p{font-size:13px;margin-top:8px;color:var(--muted)}
+.stats-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:980px){.geo-grid{grid-template-columns:repeat(2,1fr)}.stats-3{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.geo-grid{grid-template-columns:1fr}.stats-3{grid-template-columns:1fr}}
+
+/* ───────── cards ───────── */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -34px rgba(11,26,19,.55);border-color:var(--line-2)}
+.card-media{aspect-ratio:16/10;overflow:hidden;background:var(--paper-2)}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card:hover .card-media img{transform:scale(1.06)}
+.card-body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+.card-no{font-family:var(--f-mono);font-size:10px;letter-spacing:.17em;color:var(--green);font-weight:600}
+.card h3{margin-top:12px}
+.card p{margin-top:11px;color:var(--muted);font-size:14.5px;line-height:1.66}
+.tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+  border:1px solid var(--line);padding:5px 9px;border-radius:2px;background:var(--paper)}
+.card-link{margin-top:auto;padding-top:18px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--green);text-decoration:none;font-weight:600;display:inline-flex;gap:8px;align-items:center}
+.card-link::after{content:"→"}
+
+/* ───────── 3D layering deck ───────── */
+.deck{perspective:1500px;perspective-origin:50% 42%}
+.plate{transform-style:preserve-3d;transform:translate3d(0,0,calc(var(--z,0)*1px)) rotateX(calc(var(--rx,0)*1deg));will-change:transform}
+.tilt{transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+
+/* ───────── scroll-scrubbed field sequence ───────── */
+.scrub{position:relative;height:420vh;background:var(--green-deep)}
+.scrub-stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.scrub-layer{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
+.scrub-layer img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.03)}
+.scrub-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,28,19,.52) 0%,rgba(6,28,19,.06) 34%,rgba(6,34,22,.55) 72%,rgba(6,42,27,.92) 100%)}
+.scrub-copy{position:absolute;inset:auto 0 0 0;padding-block:0 clamp(48px,8vw,96px);color:#fff}
+.scrub-copy .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(20px,4vw,60px);align-items:end}
+.scrub-num{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;color:var(--green-bright)}
+.scrub-t{font-family:var(--f-display);font-weight:800;font-size:clamp(1.8rem,4.4vw,3.3rem);letter-spacing:-.03em;margin-top:12px;color:#fff}
+.scrub-d{color:#CFE4D8;margin-top:14px;max-width:52ch;font-size:15.5px}
+.scrub-prog{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(24px,4vw,40px);height:2px;background:rgba(255,255,255,.2)}
+.scrub-prog i{display:block;height:100%;background:var(--green-bright);width:0}
+.scrub-ticks{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(32px,4.6vw,52px);display:flex;justify-content:space-between;
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+/* ───────── canvases ───────── */
+.canvas-card{position:relative;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;min-height:460px}
+.canvas-card canvas{position:absolute;inset:0;width:100%;height:100%}
+.canvas-tag{position:absolute;left:18px;top:16px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--green);background:rgba(255,255,255,.88);padding:6px 10px;border-radius:2px;z-index:2}
+.canvas-hud{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.95));font-family:var(--f-mono);font-size:9.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);z-index:2}
+
+/* ───────── survey build (scroll-driven 3D) ───────── */
+.survey{position:relative;height:340vh;background:#fff}
+.survey-stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(20px,4vw,60px);
+  max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+#surveyCanvas{width:100%;height:min(74svh,680px);display:block}
+.survey-steps{display:grid;gap:10px}
+.survey-step{border-left:2px solid var(--line);padding:14px 0 14px 20px;transition:border-color .35s,opacity .35s}
+.survey-step.on{border-color:var(--green)}
+.survey-step b{font-family:var(--f-display);font-size:16px;font-weight:700;display:block;color:var(--muted-2);transition:color .35s}
+.survey-step.on b{color:var(--ink)}
+.survey-step p{color:var(--muted);font-size:14px;margin-top:6px;max-height:0;overflow:hidden;opacity:0;transition:max-height .45s,opacity .35s}
+.survey-step.on p{max-height:160px;opacity:1}
+
+/* ───────── globe ───────── */
+.globe-stage{position:relative;height:clamp(440px,68svh,720px)}
+#globeCanvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab}
+#globeCanvas:active{cursor:grabbing}
+.pin{position:absolute;transform:translate(-3px,-50%);pointer-events:none;display:flex;align-items:center;gap:6px;
+  font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transition:opacity .25s}
+.pin span{background:#fff;padding:3px 7px;border-radius:2px;box-shadow:0 1px 5px rgba(11,26,19,.22);font-weight:600}
+.pin small{background:#fff;padding:3px 6px;border-radius:2px;box-shadow:0 1px 5px rgba(11,26,19,.16);margin-left:-5px}
+.pin i{width:7px;height:7px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 3px rgba(47,196,124,.3);flex:none;font-style:normal}
+.pin.hq i{background:var(--sun);box-shadow:0 0 0 4px rgba(216,162,42,.35)}
+.pin small{color:var(--muted-2)}
+
+/* ───────── lists / tables ───────── */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 6px;border-bottom:1px solid var(--line);
+  transition:padding-left .3s,background .3s}
+.row:hover{padding-left:16px;background:var(--paper)}
+.row b{font-family:var(--f-display);font-weight:700;font-size:16px}
+.row .k{font-family:var(--f-mono);font-size:10px;color:var(--green);letter-spacing:.14em;font-weight:600}
+.row .v{font-family:var(--f-mono);font-size:10.5px;color:var(--muted-2);letter-spacing:.07em;text-align:right;white-space:nowrap}
+@media (max-width:760px){.row{grid-template-columns:auto 1fr}.row .v{grid-column:2;text-align:left;white-space:normal;margin-top:4px}.row p{grid-column:1/3}.row b{word-break:break-word}}
+.row p{grid-column:2/4;color:var(--muted);font-size:14px;margin-top:5px;line-height:1.62}
+
+/* ───────── gallery ───────── */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal figure{margin:0;position:relative;overflow:hidden;border-radius:3px;background:var(--paper-2);aspect-ratio:4/3}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.gal figure:hover img{transform:scale(1.07)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;color:#fff;
+  font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  background:linear-gradient(180deg,transparent,rgba(8,61,39,.88))}
+.gal .wide{grid-column:span 2}
+
+/* ───────── people ───────── */
+.people{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.person{background:#fff;padding:26px 22px 28px;transition:background .3s}
+.person:hover{background:var(--paper)}
+.person .ini{width:46px;height:46px;border-radius:3px;background:var(--green-wash);color:var(--green-deep);
+  display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-weight:800;font-size:14px}
+.person b{display:block;font-family:var(--f-display);font-weight:700;font-size:15.5px;margin-top:20px}
+.person small{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+.person a{display:inline-block;margin-top:13px;font-family:var(--f-mono);font-size:10px;color:var(--muted);text-decoration:none;
+  border-bottom:1px solid var(--line-2);word-break:break-all;transition:color .2s,border-color .2s}
+.person a:hover{color:var(--green);border-color:var(--green)}
+
+/* ───────── forms ───────── */
+form{display:grid;gap:15px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field label{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;background:#fff;border:1px solid var(--line-2);color:var(--ink);
+  font-family:var(--f-body);font-size:14.5px;padding:13px 14px;border-radius:3px;transition:border-color .2s,box-shadow .2s}
+.field textarea{resize:vertical;min-height:110px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(15,122,74,.12)}
+.form-note{font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;color:var(--muted);line-height:1.75}
+.sent{border:1px solid var(--green);color:var(--green-deep);background:var(--green-wash);padding:13px 15px;border-radius:3px;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.05em}
+
+/* ───────── cta ───────── */
+.cta-band{position:relative;overflow:hidden;background:var(--green-deep);color:#fff}
+.cta-band img,.cta-band video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;filter:saturate(.7);display:block}
+.cta-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) auto;gap:clamp(24px,4vw,60px);align-items:center}
+.cta-in h2{color:#fff}
+.cta-in p{color:#CFE4D8;margin-top:14px;max-width:54ch}
+
+/* ───────── footer ───────── */
+footer{background:var(--green-deep);color:#C6DED1;padding-block:clamp(44px,6vw,80px) 24px}
+footer h4{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#7FAE93;font-weight:500;margin-bottom:16px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:clamp(22px,4vw,54px)}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.foot-grid a{color:#DCEBE2;text-decoration:none;font-size:13.5px;transition:color .2s}
+.foot-grid a:hover{color:var(--green-bright)}
+.foot-brand b{font-family:var(--f-display);font-weight:900;font-size:22px;color:#fff;letter-spacing:.01em}
+.foot-bot{margin-top:clamp(32px,4.5vw,56px);padding-top:20px;border-top:1px solid rgba(255,255,255,.14);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;color:#7FAE93;text-transform:uppercase}
+
+/* ───────── misc ───────── */
+.kicker{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.badge{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:3px;padding:10px 14px;background:#fff;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--green);font-style:normal}
+.figcap{font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.media-frame{position:relative;border-radius:4px;overflow:hidden;background:var(--paper-2)}
+.media-frame img{width:100%;height:100%;object-fit:cover}
+.rise{animation:rise .85s cubic-bezier(.2,.8,.2,1) both}
+.rise-2{animation-delay:.09s}.rise-3{animation-delay:.18s}.rise-4{animation-delay:.27s}
+@keyframes rise{from{transform:translateY(16px);opacity:.3}to{transform:none;opacity:1}}
+[hidden]{display:none!important}
+
+
+input[type=range]{-webkit-appearance:none;appearance:none;height:3px;background:var(--line-2);outline:none;border-radius:3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--green);
+  cursor:pointer;border:3px solid #fff;box-shadow:0 0 0 1px var(--green),0 2px 6px rgba(11,26,19,.2)}
+input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid #fff}
+input[type=range]:focus-visible{box-shadow:0 0 0 4px rgba(15,122,74,.2)}
+.scrub-layer[data-i="0"]{opacity:1}
+
+
+/* ═══════════ motion engine ═══════════ */
+[data-motion]{will-change:transform,opacity}
+[data-motion="up"]{opacity:0;transform:translate3d(0,26px,0)}
+[data-motion="fade"]{opacity:0}
+[data-motion="scale"]{opacity:0;transform:scale(.955)}
+[data-motion="left"]{opacity:0;transform:translate3d(-28px,0,0)}
+[data-motion="right"]{opacity:0;transform:translate3d(28px,0,0)}
+[data-motion="mask"]{opacity:0;clip-path:inset(0 0 100% 0)}
+[data-motion].in{opacity:1;transform:none;clip-path:inset(0 0 0 0);
+  transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .82s cubic-bezier(.16,1,.3,1),clip-path .9s cubic-bezier(.16,1,.3,1)}
+[data-motion].now{opacity:1;transform:none;clip-path:inset(0 0 0 0);transition:none}
+
+/* ═══════════ scroll focus rail ═══════════ */
+.focus-list{position:relative}
+.focus-item{transition:opacity .5s cubic-bezier(.16,1,.3,1),filter .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1);will-change:opacity,filter,transform}
+.focus-item .focus-body{max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .6s cubic-bezier(.16,1,.3,1),opacity .45s ease,margin-top .5s ease}
+.focus-item.lead .focus-body{max-height:260px;opacity:1;margin-top:10px}
+.focus-item .focus-kicker{color:var(--muted-2);transition:color .45s ease}
+.focus-item.lead .focus-kicker{color:var(--green)}
+.focus-item h3{transition:color .45s ease}
+.focus-rail{position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--line)}
+.focus-rail i{position:absolute;left:0;width:2px;background:var(--green);border-radius:2px;
+  transition:top .45s cubic-bezier(.16,1,.3,1),height .45s cubic-bezier(.16,1,.3,1)}
+.focus-list.railed{padding-left:26px}
+
+/* ═══════════ video backgrounds ═══════════ */
+.vbg{position:absolute;inset:0;overflow:hidden;background:var(--green-deep)}
+.vbg video,.vbg img{width:100%;height:100%;object-fit:cover;display:block}
+.vbg video{filter:saturate(.92) contrast(1.03)}
+.vwrap{position:relative;overflow:hidden;border-radius:4px;background:var(--paper-2);aspect-ratio:16/9}
+.vwrap video{width:100%;height:100%;object-fit:cover;display:block}
+.vbadge{position:absolute;left:16px;top:16px;z-index:2;display:flex;align-items:center;gap:6px;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;
+  background:rgba(8,61,39,.72);padding:5px 9px;border-radius:2px;backdrop-filter:blur(4px)}
+.vbadge i{width:5px;height:5px;border-radius:50%;background:var(--green-bright);font-style:normal;animation:blip 2s ease-in-out infinite}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ═══════════ programme timeline ═══════════ */
+.tl{position:relative;height:620vh}
+.tl-stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.28fr);
+  align-items:center;gap:clamp(22px,3.4vw,68px);max-width:var(--maxw);margin-inline:auto;
+  padding-inline:var(--gut);padding-block:clamp(80px,9svh,112px) clamp(18px,3svh,40px)}
+.tl-media{position:relative;height:min(72svh,720px);border-radius:5px;overflow:hidden;background:var(--green-deep);
+  box-shadow:0 48px 96px -64px rgba(8,61,39,.85)}
+.tl-frame{position:absolute;inset:0;opacity:0;transform:scale(1.04);
+  transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.tl-frame.on{opacity:1;transform:scale(1)}
+.tl-frame video,.tl-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.tl-meta{position:absolute;left:0;right:0;bottom:0;padding:44px 22px 18px;display:flex;justify-content:space-between;gap:12px;
+  background:linear-gradient(180deg,transparent,rgba(6,34,22,.9));color:#fff;z-index:3;
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+.tl-steps{position:relative}
+.tl-step{padding:clamp(8px,1.15svh,14px) 0 clamp(8px,1.15svh,14px) 26px;border-left:2px solid var(--line);position:relative;
+  transition:border-color .45s ease,opacity .45s ease,filter .45s ease}
+.tl-step::before{content:"";position:absolute;left:-6px;top:clamp(13px,1.9svh,22px);width:10px;height:10px;border-radius:50%;
+  background:var(--white);border:2px solid var(--line-2);transition:border-color .4s ease,transform .4s ease,background .4s ease}
+.tl-step.on{border-color:var(--green)}
+.tl-step.on::before{border-color:var(--green);background:var(--green);transform:scale(1.25)}
+.tl-step .k{font-family:var(--f-mono);font-size:clamp(9px,1.15svh,10.5px);letter-spacing:.17em;text-transform:uppercase;color:var(--muted-2);transition:color .4s}
+.tl-step.on .k{color:var(--green)}
+.tl-step b{display:block;font-family:var(--f-display);font-size:clamp(0.98rem,1.78svh,1.34rem);line-height:1.16;font-weight:700;margin-top:5px;
+  color:var(--muted-2);transition:color .45s ease}
+.tl-step.on b{color:var(--ink)}
+  .tl-step p{color:var(--muted);font-size:clamp(12.5px,1.62svh,14.5px);line-height:1.58;margin-top:0;max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .55s cubic-bezier(.16,1,.3,1),opacity .4s ease,margin-top .45s ease}
+.tl-step.on p{max-height:180px;opacity:1;margin-top:8px}
+.tl-prog{position:absolute;left:-2px;top:0;width:2px;background:var(--green);border-radius:2px;height:0;
+  transition:height .25s linear;z-index:2}
+.tl-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.tl-count{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.18em;color:var(--green);font-variant-numeric:tabular-nums}
+
+/* ═══════════ media gallery (video + image) ═══════════ */
+.mgal{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.mgal figure{margin:0;position:relative;overflow:hidden;border-radius:3px;background:var(--paper-2);grid-column:span 3;aspect-ratio:4/3}
+.mgal figure.w6{grid-column:span 6;aspect-ratio:16/9}
+.mgal figure.w4{grid-column:span 4;aspect-ratio:3/2}
+.mgal img,.mgal video{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.mgal figure:hover img,.mgal figure:hover video{transform:scale(1.06)}
+.mgal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;color:#fff;z-index:2;
+  font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  background:linear-gradient(180deg,transparent,rgba(6,34,22,.9))}
+
+/* ═══════════ programme cards ═══════════ */
+.prog{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prog article{position:relative;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s,border-color .3s}
+.prog article:hover{transform:translateY(-6px);box-shadow:0 30px 56px -38px rgba(11,26,19,.5);border-color:var(--line-2)}
+.prog .pm{aspect-ratio:16/10;overflow:hidden;background:var(--paper-2)}
+.prog .pm video,.prog .pm img{width:100%;height:100%;object-fit:cover}
+.prog .pb{padding:22px 22px 26px}
+.prog .regions{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+
+/* ═══════════ scene canvases ═══════════ */
+.scene{position:relative;width:100%;height:clamp(340px,54svh,520px);overflow:hidden;border-radius:4px}
+.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scene-note{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-top:12px}
+.scene-dark{background:var(--green-deep);border-radius:4px;overflow:hidden}
+
+@media (max-width:980px){
+  .tl-stage{grid-template-columns:1fr;gap:18px;align-content:center;padding-block:96px 24px}
+  .tl-media{height:min(38svh,340px)}
+  .tl{height:520vh}
+  .prog{grid-template-columns:1fr}
+  .mgal figure,.mgal figure.w6,.mgal figure.w4{grid-column:span 6}
+}
+@media (max-width:640px){
+  .mgal figure,.mgal figure.w6,.mgal figure.w4{grid-column:span 12}
+  .tl-media{height:min(34svh,280px)}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-motion]{opacity:1!important;transform:none!important;clip-path:none!important}
+  .focus-item{opacity:1!important;filter:none!important;transform:none!important}
+  .focus-item .focus-body{max-height:none;opacity:1}
+  .tl{height:auto}
+  .tl-stage{position:static;height:auto;padding-block:60px}
+  .tl-frame{position:relative;opacity:1;transform:none}
+  .tl-step p{max-height:none;opacity:1;margin-top:8px}
+}
+
+/* ───────── responsive ───────── */
+@media (max-width:1180px){
+  .nav-links a{padding:9px 9px;font-size:12.8px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .people{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:980px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .two,.shead,.cta-in,.scrub-copy .wrap{grid-template-columns:1fr}
+  .survey-stage{grid-template-columns:1fr;align-content:center;gap:16px}
+  #surveyCanvas{height:min(46svh,380px)}
+  .survey{height:300vh}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero-strip-in{grid-template-columns:repeat(2,1fr);gap:14px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .cards,.people,.f2,.foot-grid{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .gal .wide{grid-column:span 2}
+  .hero{min-height:auto}
+  .scrub{height:380vh}
+  .canvas-card{min-height:360px}
+  .pin small{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .scrub{height:auto}
+  .scrub-stage{position:static;height:auto}
+  .survey{height:auto}
+  .survey-stage{position:static;height:auto;padding-block:60px}
+}
+</style>
+
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-in">
+    <span>Land seismic acquisition &amp; processing</span>
+    <span class="sep"></span>
+    <span>ISO 9001:2015</span>
+    <a href="mailto:info@ag-services.org">info@ag-services.org</a>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#/" aria-label="AGS — Africa Geophysical Services, home">
+      <img class="brand-logo on-light" src="assets/logo.png" width="259" height="95" alt="AGS — Africa Geophysical Services">
+      <img class="brand-logo on-dark" src="assets/logofooter.png" width="250" height="99" alt="" aria-hidden="true">
+      <span class="brand-txt"><span>Africa Geophysical Services</span></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#/about">About</a>
+      <a href="#/services">Services</a>
+      <a href="#/technology">Technology</a>
+      <a href="#/projects">Projects</a>
+      <a href="#/operations">Operations</a>
+      <a href="#/qhse">QHSE</a>
+      <a href="#/careers">Careers</a>
+    </div>
+    <a class="nav-cta" href="#/contact">Request a survey design</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="#/">Home</a><a href="#/about">About AGS</a><a href="#/services">Services</a>
+    <a href="#/technology">Technology &amp; fleet</a><a href="#/projects">Projects &amp; programmes</a><a href="#/operations">Operations</a>
+    <a href="#/qhse">QHSE</a><a href="#/careers">Careers</a><a href="#/contact">Contact</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ════════════════════ HOME ════════════════════ -->
+<div class="page" id="p-home">
+
+  <section class="hero-pin" id="heroPin">
+    <div class="hero-stage">
+      <div class="hslide on" data-i="0"><video autoplay muted loop playsinline preload="metadata" poster="assets/vid-convoy-poster.jpg" aria-label="An AGS vibroseis convoy moving through a populated area"><source src="assets/vid-convoy.webm" type="video/webm"></video></div>
+      <div class="hslide" data-i="1"><video muted loop playsinline preload="none" poster="assets/vid-desert-poster.jpg" aria-hidden="true"><source src="assets/vid-desert.webm" type="video/webm"></video></div>
+      <div class="hslide" data-i="2"><video muted loop playsinline preload="none" poster="assets/vid-recorder-poster.jpg" aria-hidden="true"><source src="assets/vid-recorder.webm" type="video/webm"></video></div>
+      <div class="hslide" data-i="3"><video muted loop playsinline preload="none" poster="assets/vid-water-poster.jpg" aria-hidden="true"><source src="assets/vid-water.webm" type="video/webm"></video></div>
+      <div class="hslide" data-i="4"><video muted loop playsinline preload="none" poster="assets/vid-forest-poster.jpg" aria-hidden="true"><source src="assets/vid-forest.webm" type="video/webm"></video></div>
+      <div class="hero-scrim"></div>
+      <canvas id="heroCanvas" aria-label="Animated seismic wavefield propagating through layered strata"></canvas>
+
+      <div class="hero-body">
+        <div class="wrap hero-in">
+          <div class="hs-copy" id="hsCopy">
+            <p class="eyebrow on-dark" id="hsEyebrow">Muscat, Oman · Established 2011 · ISO 9001:2015</p>
+            <h1 id="hsTitle">We read the ground<br><em>layer by layer.</em></h1>
+            <p class="lede" id="hsLede">Africa Geophysical Services designs, acquires and processes land seismic surveys across desert, dense forest, mountain, populated ground and shallow water — from Muscat to the Great Lakes.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-a btn-arrow" href="#/services">Explore our services</a>
+            <a class="btn btn-c" href="#/projects">See our programmes</a>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="hrow">
+            <div class="hdots" id="hdots"></div>
+            <div class="hero-cue"><span>Keep scrolling</span><i></i></div>
+          </div>
+          <div class="cslider">
+            <span class="cslider-lbl">Where we work</span>
+            <div class="cwin"><div class="ctrack" id="ctrack"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="two top">
+        <div>
+          <p class="eyebrow">Who we are</p>
+          <h2 style="margin-top:16px">An Omani-owned contractor<br>built for difficult ground.</h2>
+        </div>
+        <div>
+          <p class="lede">AGS is a land seismic data acquisition and processing company headquartered in Muscat and working across East Africa, North Africa, the Gulf and beyond. We own our vibrators, our recording channels, our drilling rigs and our processing systems — and we recruit and develop local crews in every country we operate.</p>
+          <div class="badges">
+            <span class="badge"><i></i>ISO 9001:2015</span>
+            <span class="badge"><i></i>Omani-owned</span>
+            <span class="badge"><i></i>Founded 2011</span>
+            <span class="badge"><i></i>IMC GSL sister company</span>
+          </div>
+          <div class="hero-actions"><a class="btn btn-b btn-arrow" href="#/about">More about AGS</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-tight">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><b>2011</b><small>Founded in Muscat,<br>Omani-owned</small></div>
+        <div class="stat"><b>30<i>+</i></b><small>Years of land seismic<br>experience in leadership</small></div>
+        <div class="stat"><b>8</b><small>Countries with offices<br>or operational bases</small></div>
+        <div class="stat"><b>5</b><small>Survey types — 2D, 3D,<br>3D-3C, 4D, 4D-3C</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper deck">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">What we do</p><h2>From the first line on a map to a migrated volume.</h2></div>
+        <p class="body-dim">Survey design, field acquisition, in-field quality control and office processing — run by one accountable company, so nothing is lost in the handover between contractors.</p>
+      </header>
+      <div class="cards plate" id="homeCards">
+        <article class="card">
+          <div class="card-media"><img src="assets/rec.jpg" alt="AGS recording unit on a survey line" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-no">01</span><h3>Survey evaluation &amp; design</h3>
+            <p>Geometry, fold, offset and azimuth modelled against the objective and the terrain, before a single flag is planted.</p>
+            <a class="card-link" href="#/services">See the method</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/vibeline.jpg" alt="AGS vibroseis trucks working a line" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-no">02</span><h3>Land seismic acquisition</h3>
+            <p>2D, 3D, 3D-3C, 4D and 4D-3C on Sercel 428, ARIES and nodal spreads, energised by a wholly owned vibroseis fleet.</p>
+            <a class="card-link" href="#/services">See the capability</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/recorder.jpg" alt="AGS recording truck on rocky desert ground" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-no">03</span><h3>Processing &amp; in-field QC</h3>
+            <p>Field processing travels with the crew; ProMAX office processing carries the data through statics, velocity and migration.</p>
+            <a class="card-link" href="#/services">See the sequence</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- scroll-driven 3D survey build -->
+  <section class="survey" id="survey">
+    <div class="survey-stage">
+      <div>
+        <p class="eyebrow">How a survey is built</p>
+        <h2 style="margin-top:14px;font-size:clamp(1.6rem,3vw,2.5rem)">Scroll to lay the spread.</h2>
+        <div class="survey-steps" id="surveySteps">
+          <div class="survey-step" data-step="0"><b>01 — Design the geometry</b><p>Receiver line interval, source line interval and bin size are set by the target depth and the resolution the objective needs.</p></div>
+          <div class="survey-step" data-step="1"><b>02 — Survey the stations</b><p>RTK GPS positions every source and receiver station to centimetric accuracy, and records the terrain as it is, not as the map says.</p></div>
+          <div class="survey-step" data-step="2"><b>03 — Lay the receivers</b><p>Cabled, distributed or cable-free nodal spreads, chosen by access, permitting and safety rather than by what is in the yard.</p></div>
+          <div class="survey-step" data-step="3"><b>04 — Energise the source</b><p>Vibroseis sweeps or shot holes. Every source point illuminates the subsurface and is recorded across the live spread.</p></div>
+          <div class="survey-step" data-step="4"><b>05 — Build the fold</b><p>Midpoints accumulate into bins. Fold is the number of traces that stack into each bin — and the reason a reflector survives noise.</p></div>
+        </div>
+      </div>
+      <canvas id="surveyCanvas" aria-label="Three-dimensional survey layout building up as you scroll: receiver lines, source lines, and accumulating midpoint fold"></canvas>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">Global reach</p><h2>Across geographical boundaries.</h2></div>
+        <p class="body-dim">Headquartered in the Sultanate of Oman, with operational bases and registered offices through East Africa, North Africa, the Gulf, Kurdistan, Türkiye and the United Kingdom — and the logistics to move crews and equipment between them.</p>
+      </header>
+      <div class="globe-stage" id="globeStage">
+        <canvas id="globeCanvas" aria-label="Interactive globe showing AGS office locations linked to Muscat by great-circle routes"></canvas>
+      </div>
+      <div class="geo-grid">
+        <div><span class="card-no">Headquarters</span><h3>Muscat, Oman</h3><p>Registered office · operational base · logistics</p></div>
+        <div><span class="card-no">Operational base</span><h3>Tanzania</h3><p>Registered office · logistical support</p></div>
+        <div><span class="card-no">Operational base</span><h3>Egypt</h3><p>Registered office · logistical support</p></div>
+        <div><span class="card-no">Operational base</span><h3>United Kingdom</h3><p>Logistics · IMC GSL, Sheffield</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <video class="ctavid" autoplay muted loop playsinline preload="none" poster="assets/vid-desert-poster.jpg" aria-hidden="true">
+      <source src="assets/vid-desert.webm" type="video/webm">
+    </video>
+    <div class="wrap cta-in">
+      <div>
+        <p class="eyebrow on-dark">Start a conversation</p>
+        <h2 style="margin-top:14px">Tell us the objective.<br>We will design the survey around it.</h2>
+        <p>Send the basin, the target depth and the access constraints. A survey designer will come back with a geometry, a terrain plan and an honest view of what the ground will and will not give you.</p>
+      </div>
+      <a class="btn btn-c btn-arrow" href="#/contact">Request a survey design</a>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ ABOUT ════════════════════ -->
+<div class="page" id="p-about" hidden>
+  <section class="phead">
+    <img src="assets/hero.jpg" alt="An AGS vibroseis fleet lined up on a survey block">
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / About</p>
+      <h1>An Omani company that grew into its own equipment.</h1>
+      <p>Established in January 2011 and wholly Omani-owned, AGS has invested steadily in seismic vibrators, recording channels, GPS survey units, drilling rigs and ProMAX processing systems — building a contractor that answers to its own maintenance programme rather than a rental queue.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two top">
+      <div>
+        <p class="eyebrow">Our position</p>
+        <h2 style="margin-top:16px">Integrated geophysical solutions, across geographical boundaries.</h2>
+        <p class="lede" style="margin-top:20px">AGS provides comprehensive seismic services — designing and acquiring seismic surveys through to processing and interpreting the result. The company's stated aim is to become a service leader in land seismic data acquisition by using the most up-to-date technology, and to earn customer satisfaction through honest, integrity-based business practice.</p>
+        <div class="badges">
+          <span class="badge"><i></i>Founded January 2011</span>
+          <span class="badge"><i></i>HQ Muscat, Oman</span>
+          <span class="badge"><i></i>ISO 9001:2015</span>
+        </div>
+      </div>
+      <div>
+        <div class="scene scene-dark"><canvas id="coreCanvas" aria-label="Rotating three-dimensional core column showing stacked geological layers"></canvas></div>
+        <p class="scene-note">Stacked layers — what a survey is trying to resolve</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">What we believe</p><h2>Four commitments that decide how a crew behaves.</h2></div>
+        <p class="body-dim">These are not posters in the camp office. They are the reasons a job gets stopped, a route gets changed or a village gets consulted before a vibrator arrives.</p>
+      </header>
+      <div class="cards">
+        <article class="card"><div class="card-body">
+          <span class="card-no">01</span><h3>Fulfil the client objective</h3>
+          <p>A survey is not delivered when the last shot is fired. It is delivered when the data answers the question the client asked.</p></div></article>
+        <article class="card"><div class="card-body">
+          <span class="card-no">02</span><h3>Quality assurance throughout</h3>
+          <p>ISO 9001:2015 certified quality management, with in-field QC that catches problems while the spread is still on the ground.</p></div></article>
+        <article class="card"><div class="card-body">
+          <span class="card-no">03</span><h3>Local talent, developed</h3>
+          <p>AGS prioritises recruiting and developing local people in every country it works, rather than flying in a complete crew.</p></div></article>
+        <article class="card"><div class="card-body">
+          <span class="card-no">04</span><h3>Community engagement</h3>
+          <p>Exploration happens on land that belongs to someone. Engagement with the communities hosting the work comes before the work.</p></div></article>
+        <article class="card"><div class="card-body">
+          <span class="card-no">05</span><h3>Honesty and integrity</h3>
+          <p>Transparency, business ethics and anti-corruption policy — stated, documented and applied to every tender and every camp.</p></div></article>
+        <article class="card"><div class="card-body">
+          <span class="card-no">06</span><h3>Own the equipment</h3>
+          <p>Vibrators, channels, rigs, survey units and processing systems are owned outright, so schedules and standards stay ours to keep.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">Leadership</p><h2>The people accountable for the work.</h2></div>
+        <p class="body-dim">A leadership team whose experience in land seismic runs back more than three decades, supported by national crews in each operating country.</p>
+      </header>
+      <div class="people">
+        <div class="person"><span class="ini">SA</span><b>Salim Ajib Alhajri</b><small>Chairman</small><a href="mailto:salim@ag-services.org">salim@ag-services.org</a></div>
+        <div class="person"><span class="ini">ST</span><b>Steven Thomas</b><small>Managing Director</small><a href="mailto:tommo@ag-services.org">tommo@ag-services.org</a></div>
+        <div class="person"><span class="ini">SH</span><b>Shadia Al Hajri</b><small>Human Resources Manager</small><a href="mailto:shadia@ag-services.org">shadia@ag-services.org</a></div>
+        <div class="person"><span class="ini">IA</span><b>Ian Angus</b><small>HSE Manager</small><a href="mailto:ian@imcgsl.com">ian@imcgsl.com</a></div>
+        <div class="person"><span class="ini">CS</span><b>Colin Sinclair</b><small>Business Manager</small><a href="mailto:colin@ag-services.org">colin@ag-services.org</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap two">
+      <div>
+        <p class="eyebrow">Group</p>
+        <h2 style="margin-top:14px">IMC GSL</h2>
+        <p class="lede" style="margin-top:16px">Our sister company, based in Killamarsh, Sheffield, extends the group's reach into the United Kingdom and provides logistical support for European and North African mobilisations.</p>
+      </div>
+      <div class="media-frame" style="aspect-ratio:16/10"><img src="assets/drill.jpg" alt="A shallow drilling unit operating on a UK site"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ SERVICES ════════════════════ -->
+<div class="page" id="p-services" hidden>
+  <section class="phead">
+    <img src="assets/vibeline.jpg" alt="AGS vibroseis trucks on a survey line">
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / Services</p>
+      <h1>Survey &amp; geophysics, end to end.</h1>
+      <p>Comprehensive seismic services from designing and acquiring seismic surveys through to processing and interpreting the result.</p>
+    </div>
+  </section>
+
+  <section class="band deck">
+    <div class="wrap">
+      <div class="cards plate">
+        <article class="card">
+          <div class="card-media"><img src="assets/rec.jpg" alt="Recording unit on a survey line" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">S/01</span><h3>Survey evaluation &amp; design</h3>
+          <p>Bin size, fold, offset range and azimuth distribution are modelled against the target depth and the terrain the spread has to cross. The output is a geometry, a terrain plan and a realistic production rate.</p>
+          <div class="tags"><span class="tag">Bin design</span><span class="tag">Fold modelling</span><span class="tag">Permitting</span></div></div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/vibedesert.jpg" alt="Vibroseis trucks in convoy" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">S/02</span><h3>Land seismic data acquisition</h3>
+          <p>2D, 3D, 3D-3C, 4D and 4D-3C recording on Sercel 428, ARIES and nodal systems, with wholly owned fleets of vibrators and geophysical recording equipment.</p>
+          <div class="tags"><span class="tag">Sercel 428</span><span class="tag">ARIES</span><span class="tag">Nodal</span><span class="tag">Vibroseis</span></div></div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/recorder.jpg" alt="AGS recording truck in the field" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">S/03</span><h3>In-field data processing &amp; QC</h3>
+          <p>Field processing centres travel with the crew, so noise, statics and coverage problems are found while the spread is still live and can still be fixed.</p>
+          <div class="tags"><span class="tag">Daily QC</span><span class="tag">Brute stack</span><span class="tag">Coverage</span></div></div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/terrain.jpg" alt="Survey vehicle in dense terrain" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">S/04</span><h3>Seismic data processing</h3>
+          <p>QC field processing and office-based processing on ProMAX, carrying the field data through statics, velocity analysis, noise attenuation and migration to an interpretable volume.</p>
+          <div class="tags"><span class="tag">ProMAX</span><span class="tag">Statics</span><span class="tag">Migration</span></div></div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/shothole.jpg" alt="Shot hole drilling on a cleared line" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">S/05</span><h3>Uphole &amp; LVL surveys</h3>
+          <p>Near-surface velocity from upholes and low-velocity-layer refraction gives the static corrections that decide whether a deep reflector images sharply or smears.</p>
+          <div class="tags"><span class="tag">Upholes</span><span class="tag">LVL refraction</span><span class="tag">Statics</span></div></div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="assets/swoboats.jpg" alt="Shallow water survey boats" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">S/06</span><h3>RTK survey &amp; shallow geophysics</h3>
+          <p>Real-time kinematic GPS positions every station, and shallow geophysical and shallow-water surveys extend the work to engineering, groundwater and transition-zone programmes.</p>
+          <div class="tags"><span class="tag">RTK GPS</span><span class="tag">Shallow water</span><span class="tag">Site investigation</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two top">
+      <div>
+        <p class="eyebrow">Geometry</p>
+        <h2 style="margin-top:14px">Every trace is a ray that went down and came back.</h2>
+        <p class="lede" style="margin-top:18px">A source point sends energy into the ground; each receiver records what reflected off an interface and returned. The common midpoint between a source and a receiver is the place on the reflector that trace illuminates — and stacking many of them is what turns noise into an image.</p>
+        <div class="badges">
+          <span class="badge"><i></i>Source</span><span class="badge"><i></i>Reflector</span><span class="badge"><i></i>Receiver spread</span><span class="badge"><i></i>Common midpoint</span>
+        </div>
+      </div>
+      <div>
+        <div class="scene scene-dark"><canvas id="rayCanvas" aria-label="Three-dimensional ray paths from a seismic source down to a reflector and back to a receiver spread"></canvas></div>
+        <p class="scene-note">Ray paths, reflector and the common-midpoint fan</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">Why it matters</p><h2>Resolution is a decision made in the field.</h2></div>
+        <p class="body-dim">The bandwidth a crew records sets the thinnest bed an interpreter will ever resolve. Move the dominant frequency below and watch two closely spaced reflectors merge into a single event.</p>
+      </header>
+      <div class="two top" style="align-items:center">
+        <div>
+          <p class="kicker">Synthetic trace</p>
+          <h3 style="margin-top:12px">Ricker wavelet convolved with a layered reflectivity model</h3>
+          <p class="body-dim" style="margin-top:12px;font-size:14.5px">A zero-phase Ricker wavelet at the dominant frequency you set, convolved with an illustrative impedance log and displayed as a variable-area wiggle — the convention on every land seismic section.</p>
+          <div style="margin-top:22px">
+            <label for="freq" style="display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:9px">Dominant frequency <b style="color:var(--green);font-weight:600"><span id="freqVal">35</span> Hz</b></label>
+            <input type="range" id="freq" min="8" max="80" value="35" step="1" style="width:100%">
+          </div>
+          <div style="margin-top:20px">
+            <label for="sep" style="display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:9px">Reflector separation <b style="color:var(--green);font-weight:600"><span id="sepVal">18</span> ms</b></label>
+            <input type="range" id="sep" min="4" max="60" value="18" step="1" style="width:100%">
+          </div>
+          <p class="form-note" id="resNote" style="margin-top:18px"></p>
+        </div>
+        <canvas id="traceCanvas" style="width:100%;height:400px;display:block;background:#fff;border:1px solid var(--line);border-radius:4px" aria-label="Synthetic seismic trace rendered as a variable-area wiggle display"></canvas>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ TECHNOLOGY ════════════════════ -->
+<div class="page" id="p-technology" hidden>
+  <section class="phead">
+    <img src="assets/recorder.jpg" alt="An AGS recording unit on rocky desert ground">
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / Technology &amp; fleet</p>
+      <h1>Equipment we own. Crews we train.</h1>
+      <p>Since 2011 AGS has acquired seismic vibrators, GPS survey units, drilling rigs and ProMAX data processing systems to support comprehensive field operations.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two top">
+      <div class="rows">
+        <div class="row"><span class="k">R/01</span><b>Sercel 428XL cable systems</b><span class="v">Cabled · high channel count</span>
+          <p>Densely sampled recording for large 3D spreads where cable telemetry remains the most economical route to channel count.</p></div>
+        <div class="row"><span class="k">R/02</span><b>ARIES recording systems</b><span class="v">Distributed · rugged</span>
+          <p>Distributed architecture suited to difficult access and long, thin 2D programmes across remote terrain.</p></div>
+        <div class="row"><span class="k">R/03</span><b>Nodal recording systems</b><span class="v">Cable-free · autonomous</span>
+          <p>Cable-free nodes for populated areas, farmland, dense forest and anywhere a cable spread would be a permitting or safety problem.</p></div>
+        <div class="row"><span class="k">S/01</span><b>Wholly owned vibroseis fleet</b><span class="v">Sweep-controlled source</span>
+          <p>Controlled-source energy with repeatable sweeps — essential for 4D repeatability and for working close to infrastructure and communities.</p></div>
+        <div class="row"><span class="k">S/02</span><b>Drilling rigs</b><span class="v">Shot hole · uphole</span>
+          <p>In-house drilling for explosive source points and for the uphole programme that feeds the near-surface velocity model.</p></div>
+        <div class="row"><span class="k">P/01</span><b>ProMAX processing systems</b><span class="v">Field &amp; office</span>
+          <p>The same processing environment in the field camp and the office, so field QC products and the final sequence stay consistent.</p></div>
+        <div class="row"><span class="k">P/02</span><b>RTK GPS survey units</b><span class="v">Centimetric positioning</span>
+          <p>Real-time kinematic positioning for station layout, topographic control and as-laid reconciliation.</p></div>
+      </div>
+      <div>
+        <div class="canvas-card" id="volCard">
+          <canvas id="volCanvas" aria-label="Three-dimensional seismic volume with a sweeping inline slice"></canvas>
+          <span class="canvas-tag">Migrated volume · illustrative model</span>
+          <div class="canvas-hud"><span>Inline sweep</span><span>Amplitude peak / trough</span><span>Drag to rotate</span></div>
+        </div>
+        <p class="figcap">What the equipment above is for: an imaged subsurface volume, here showing an anticline cut by a normal fault.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">Support</p><h2>The half of a seismic crew nobody photographs.</h2></div>
+        <p class="body-dim">Camps, line clearing, water, medical cover, vehicle maintenance and permit negotiation decide whether a production target is met as much as the recording system does.</p>
+      </header>
+      <div class="cards">
+        <article class="card"><div class="card-media"><img src="assets/support.jpg" alt="Line clearing through dense bush" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">01</span><h3>Line clearing &amp; access</h3><p>Cutting and reinstating access through bush, farmland and forest with the smallest footprint the geometry allows.</p></div></article>
+        <article class="card"><div class="card-media"><img src="assets/drill.jpg" alt="Shallow drilling unit" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">02</span><h3>Drilling support</h3><p>Shot hole and uphole drilling with in-house rigs, water supply and consumables managed by the same crew.</p></div></article>
+        <article class="card"><div class="card-media"><img src="assets/swo.jpg" alt="Shallow water recording barge" loading="lazy"></div>
+          <div class="card-body"><span class="card-no">03</span><h3>Transition-zone logistics</h3><p>Recording barges, cable boats and shore crews for shallow water and transition-zone programmes.</p></div></article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ OPERATIONS ════════════════════ -->
+<div class="page" id="p-operations" hidden>
+  <section class="phead">
+    <img src="assets/terrain.jpg" alt="An AGS survey vehicle working through dense terrain">
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / Operations</p>
+      <h1>Practical recording solutions in all types of terrain.</h1>
+      <p>Dense forest, open desert, cultivated farmland, populated villages, mountain and shallow water — each one changes the spread, the source and the safety case.</p>
+    </div>
+  </section>
+
+  <!-- scroll-scrubbed field sequence -->
+  <section class="scrub" id="scrub">
+    <div class="scrub-stage">
+      <div class="scrub-layer" data-i="0"><img src="assets/vibenight.jpg" alt="Vibroseis convoy raising dust across open scrub"></div>
+      <div class="scrub-layer" data-i="1"><img src="assets/shothole.jpg" alt="A cleared line through bush with a drilling crew"></div>
+      <div class="scrub-layer" data-i="2"><img src="assets/populated.jpg" alt="Vibroseis trucks moving through a populated area"></div>
+      <div class="scrub-layer" data-i="3"><img src="assets/support.jpg" alt="Line clearing through dense green bush"></div>
+      <div class="scrub-layer" data-i="4"><img src="assets/swo.jpg" alt="A shallow water recording barge"></div>
+      <div class="scrub-layer" data-i="5"><img src="assets/recorder.jpg" alt="An AGS recording unit on rocky desert ground"></div>
+      <div class="scrub-veil"></div>
+      <div class="scrub-copy">
+        <div class="wrap">
+          <div>
+            <p class="scrub-num" id="scrubNum">01 / 06</p>
+            <h2 class="scrub-t" id="scrubT">Open desert &amp; scrub</h2>
+          </div>
+          <p class="scrub-d" id="scrubD">Vibroseis convoys move fast over open ground. The limit is dust, heat and the distance between the camp and the block — not the geophysics.</p>
+        </div>
+      </div>
+      <div class="scrub-ticks">
+        <span>Desert</span><span>Forest track</span><span>Populated</span><span>Dense bush</span><span>Shallow water</span><span>Rock desert</span>
+      </div>
+      <div class="scrub-prog"><i id="scrubProg"></i></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two top">
+      <div>
+        <p class="eyebrow">Terrain model</p>
+        <h2 style="margin-top:14px">The ground decides the spread.</h2>
+        <p class="lede" style="margin-top:18px">Dune field, forested ridge, cultivated flat, shoreline. The receiver spread, the source and the safety case all change with the surface — which is why AGS carries cabled, distributed and cable-free systems rather than one of them.</p>
+        <div class="badges">
+          <span class="badge"><i></i>Dune field</span><span class="badge"><i></i>Forested ridge</span><span class="badge"><i></i>Cultivated flat</span><span class="badge"><i></i>Shoreline</span>
+        </div>
+      </div>
+      <div>
+        <div class="scene scene-dark"><canvas id="terrainCanvas" aria-label="Three-dimensional terrain morphing between dune field, forested ridge, cultivated flat and shoreline with a survey line draped over it"></canvas></div>
+        <p class="scene-note">Survey line draped over a morphing terrain model</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">Gallery</p><h2>Dynamite, vibroseis and shallow water operations.</h2></div>
+        <p class="body-dim">Photographs from AGS crews in the field. Full-resolution originals and additional sets are held by the company and can be supplied on request.</p>
+      </header>
+      <div class="gal">
+        <figure class="wide"><img src="assets/vibeline.jpg" alt="Vibroseis trucks working a line" loading="lazy"><figcaption>Vibroseis — recording a line</figcaption></figure>
+        <figure><img src="assets/forest.jpg" alt="Drilling unit in dense bush" loading="lazy"><figcaption>Dynamite — shot hole drilling</figcaption></figure>
+        <figure><img src="assets/forest2.jpg" alt="Crew laying geophones in long grass" loading="lazy"><figcaption>Dense forest — laying the spread</figcaption></figure>
+        <figure><img src="assets/hero.jpg" alt="Vibroseis fleet lined up" loading="lazy"><figcaption>Fleet — mobilised on the block</figcaption></figure>
+        <figure><img src="assets/populated.jpg" alt="Vibroseis convoy on a road" loading="lazy"><figcaption>Populated areas — road transit</figcaption></figure>
+        <figure class="wide"><img src="assets/swoboats.jpg" alt="Shallow water cable boats" loading="lazy"><figcaption>Shallow water — cable boats</figcaption></figure>
+        <figure><img src="assets/swo.jpg" alt="Shallow water recorder barge" loading="lazy"><figcaption>Shallow water — recording barge</figcaption></figure>
+        <figure><img src="assets/rec.jpg" alt="Recording truck on a hillside" loading="lazy"><figcaption>Recording unit</figcaption></figure>
+        <figure><img src="assets/drill.jpg" alt="Shallow drilling rig" loading="lazy"><figcaption>Uphole drilling</figcaption></figure>
+        <figure><img src="assets/vibedesert.jpg" alt="Vibroseis trucks in convoy" loading="lazy"><figcaption>Vibroseis — transit</figcaption></figure>
+        <figure><img src="assets/shothole.jpg" alt="Cleared line through bush" loading="lazy"><figcaption>Line clearing</figcaption></figure>
+        <figure><img src="assets/support.jpg" alt="Support vehicle in dense bush" loading="lazy"><figcaption>Support — dense bush</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ QHSE ════════════════════ -->
+<div class="page" id="p-qhse" hidden>
+  <section class="phead">
+    <img src="assets/forest2.jpg" alt="An AGS crew working a line in long grass">
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / QHSE</p>
+      <h1>Health, safety and environmental accountability is everyone's responsibility.</h1>
+      <p>Zero injuries and zero environmental damage are the only acceptable targets, underpinned by ISO 9001:2015 certified quality management.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="stats stats-3">
+        <div class="stat"><b>0</b><small>Injuries — the only<br>acceptable target</small></div>
+        <div class="stat"><b>0</b><small>Environmental damage<br>from our operations</small></div>
+        <div class="stat"><b>ISO</b><small>9001:2015 certified<br>quality management</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="wrap two top">
+      <div>
+        <p class="eyebrow">HSE culture</p>
+        <h2 style="margin-top:14px">Four leadership practices.</h2>
+        <p class="body-dim" style="margin-top:16px">Our HSE culture rests on what supervisors do on the line, not on what the manual says.</p>
+        <div class="rows" style="margin-top:24px">
+          <div class="row"><span class="k">i</span><b>Role modelling</b><span class="v">Visible commitment</span><p>Senior management commitment that crews can see, every day, on the spread.</p></div>
+          <div class="row"><span class="k">ii</span><b>Inspirational motivation</b><span class="v">Purpose</span><p>Giving meaningful purpose to the work, so safe practice is owned by the crew rather than imposed on it.</p></div>
+          <div class="row"><span class="k">iii</span><b>Intellectual stimulation</b><span class="v">Stop-work authority</span><p>Encouraging critical thinking — the authority to stop a job belongs to whoever sees the hazard first.</p></div>
+          <div class="row"><span class="k">iv</span><b>Individual consideration</b><span class="v">Growth</span><p>Focused on employee growth, including the recruitment and development of local talent in every operating country.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="scene scene-dark"><canvas id="zeroCanvas" aria-label="Particles converging into a zero, representing the zero-harm target"></canvas></div>
+        <p class="figcap">Zero is a target that has to be re-earned on every line, every day.</p>
+        <h3 style="margin-top:34px">Policy framework</h3>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Health, safety &amp; environment</span><span class="tag">Quality</span><span class="tag">Drug &amp; alcohol</span>
+          <span class="tag">Driving</span><span class="tag">Smoking</span><span class="tag">Employee conduct</span>
+          <span class="tag">Anti-corruption</span><span class="tag">HSE training</span><span class="tag">Continuous improvement</span>
+        </div>
+        <p class="body-dim" style="margin-top:22px;font-size:14.5px">Underpinned by transparency, business ethics, proactive innovation, and reliable delivery to clients, partners and the communities hosting exploration activity.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ CAREERS ════════════════════ -->
+<div class="page" id="p-careers" hidden>
+  <section class="phead">
+    <img src="assets/vibeline.jpg" alt="An AGS crew working alongside vibroseis trucks">
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / Careers</p>
+      <h1>We recruit locally and train for the long term.</h1>
+      <p>AGS prioritises recruiting and developing local talent in every country it operates — from line crew and drillers through to observers, surveyors and processors.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two top">
+      <div>
+        <p class="eyebrow">Working at AGS</p>
+        <h2 style="margin-top:14px">Seismic is learned on the spread.</h2>
+        <p class="lede" style="margin-top:18px">Most of our senior field staff started on a line. We hire for attitude to safety and willingness to learn, then train people into surveying, observing, drilling supervision and processing as the work allows.</p>
+        <div class="badges">
+          <span class="badge"><i></i>Oman</span><span class="badge"><i></i>Tanzania</span><span class="badge"><i></i>Egypt</span>
+          <span class="badge"><i></i>Uganda</span><span class="badge"><i></i>Kurdistan</span><span class="badge"><i></i>United Kingdom</span>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="k">F/01</span><b>Line crew &amp; layout</b><span class="v">Field · entry</span><p>Laying, retrieving and maintaining cabled and nodal spreads. The route into every other field role.</p></div>
+        <div class="row"><span class="k">F/02</span><b>Drillers &amp; drilling assistants</b><span class="v">Field</span><p>Shot hole and uphole drilling with in-house rigs, including water supply and hole logging.</p></div>
+        <div class="row"><span class="k">F/03</span><b>Surveyors</b><span class="v">Field · RTK GPS</span><p>Station layout, topographic control and as-laid reconciliation using real-time kinematic GPS.</p></div>
+        <div class="row"><span class="k">F/04</span><b>Observers &amp; QC geophysicists</b><span class="v">Field · recording</span><p>Running the recording system, monitoring noise and quality, and producing daily field QC products.</p></div>
+        <div class="row"><span class="k">P/01</span><b>Seismic processors</b><span class="v">Office · ProMAX</span><p>Statics, velocity analysis, noise attenuation and migration on ProMAX.</p></div>
+        <div class="row"><span class="k">H/01</span><b>HSE &amp; camp management</b><span class="v">Field · support</span><p>Safety, medical cover, camp logistics and community liaison.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="wrap two top">
+      <div>
+        <p class="eyebrow">Progression</p>
+        <h2 style="margin-top:14px">Most senior field staff started on a line.</h2>
+        <p class="lede" style="margin-top:18px">There is no single route through a seismic crew. Layout leads to surveying, observing or drilling; the field leads to processing and to supervision. The network below is how people actually move.</p>
+      </div>
+      <div>
+        <div class="scene scene-dark"><canvas id="pathCanvas" aria-label="Three-dimensional network of career routes through a seismic crew"></canvas></div>
+        <p class="scene-note">Routes through a crew</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <video class="ctavid" autoplay muted loop playsinline preload="none" poster="assets/vid-forest-poster.jpg" aria-hidden="true">
+      <source src="assets/vid-forest.webm" type="video/webm">
+    </video>
+    <div class="wrap cta-in">
+      <div>
+        <p class="eyebrow on-dark">Applications</p>
+        <h2 style="margin-top:14px">Send a CV and tell us where you are.</h2>
+        <p>We keep applications on file against upcoming mobilisations and contact people when a crew forms in their region.</p>
+      </div>
+      <a class="btn btn-c btn-arrow" href="#/contact">Apply through contact</a>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ PROJECTS ════════════════════ -->
+<div class="page" id="p-projects" hidden>
+  <section class="phead">
+    <div class="vbg">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/vid-recorder-poster.jpg" aria-label="An AGS recording unit operating on rock desert">
+        <source src="assets/vid-recorder.webm" type="video/webm">
+      </video>
+    </div>
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / Projects &amp; programmes</p>
+      <h1>Programmes we run, phase by phase.</h1>
+      <p>AGS has been acquiring and processing land seismic since 2011 across Oman, Tanzania, Egypt, Uganda, Kurdistan, T&uuml;rkiye and the United Kingdom. Below is how a programme actually runs, and the operations we run it with.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">Programme types</p><h2>Three operations, one crew structure.</h2></div>
+        <p class="body-dim">Every AGS programme is one of these three, or a combination of them run from the same camp. Regions are the countries in which AGS holds offices or operational bases.</p>
+      </header>
+      <div class="prog">
+        <article>
+          <div class="pm"><video autoplay muted loop playsinline preload="none" poster="assets/ph-drill-poster.jpg"><source src="assets/ph-drill.webm" type="video/webm"></video></div>
+          <div class="pb">
+            <span class="card-no">P/01</span>
+            <h3 style="margin-top:12px">Dynamite operations</h3>
+            <p style="margin-top:11px;color:var(--muted);font-size:14.5px">Shot-hole drilling with in-house rigs, for terrain where a vibrator cannot go or where the near surface demands a buried source. Includes the uphole programme that feeds the statics model.</p>
+            <div class="regions"><span class="tag">Dense forest</span><span class="tag">Bush</span><span class="tag">East Africa</span></div>
+          </div>
+        </article>
+        <article>
+          <div class="pm"><video autoplay muted loop playsinline preload="none" poster="assets/ph-record-poster.jpg"><source src="assets/ph-record.webm" type="video/webm"></video></div>
+          <div class="pb">
+            <span class="card-no">P/02</span>
+            <h3 style="margin-top:12px">Vibroseis operations</h3>
+            <p style="margin-top:11px;color:var(--muted);font-size:14.5px">Wholly owned vibrator fleets running controlled, repeatable sweeps — the source of choice near infrastructure, in populated ground and on any programme where 4D repeatability matters.</p>
+            <div class="regions"><span class="tag">Desert</span><span class="tag">Farmland</span><span class="tag">Populated</span><span class="tag">Gulf · North Africa</span></div>
+          </div>
+        </article>
+        <article>
+          <div class="pm"><video autoplay muted loop playsinline preload="none" poster="assets/ph-tz-poster.jpg"><source src="assets/ph-tz.webm" type="video/webm"></video></div>
+          <div class="pb">
+            <span class="card-no">P/03</span>
+            <h3 style="margin-top:12px">Shallow water operations</h3>
+            <p style="margin-top:11px;color:var(--muted);font-size:14.5px">Recording barges, cable boats and shore crews carrying the spread from the shoreline into water too shallow for a marine vessel — the transition zone neither a land nor a marine contractor covers well.</p>
+            <div class="regions"><span class="tag">Transition zone</span><span class="tag">Lakes</span><span class="tag">Coastal</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- scroll-driven programme timeline -->
+  <section class="tl" id="tl">
+    <div class="tl-stage">
+      <div>
+        <div class="tl-head">
+          <div>
+            <p class="eyebrow">Anatomy of a programme</p>
+            <h2 style="margin-top:10px;font-size:clamp(1.6rem,3.4svh,2.9rem)">Mobilisation to final volume.</h2>
+          </div>
+          <span class="tl-count"><span id="tlNum">01</span> / 07</span>
+        </div>
+        <div class="tl-steps" id="tlSteps">
+          <span class="tl-prog" id="tlProg"></span>
+          <div class="tl-step" data-i="0"><span class="k">Phase 01 · Week 0</span><b>Mobilisation</b>
+            <p>Fleet, recording systems, drilling rigs and camp move onto the block. Equipment AGS owns arrives on an AGS schedule.</p></div>
+          <div class="tl-step" data-i="1"><span class="k">Phase 02 · Weeks 0&ndash;2</span><b>Permitting &amp; community engagement</b>
+            <p>Landowners, authorities and the communities hosting the work are consulted before a line is cut. Access routes and no-go areas are agreed and mapped.</p></div>
+          <div class="tl-step" data-i="2"><span class="k">Phase 03 · Weeks 1&ndash;4</span><b>Survey &amp; line clearing</b>
+            <p>RTK GPS positions every source and receiver station; access is cut to the minimum the geometry allows, and recorded for reinstatement.</p></div>
+          <div class="tl-step" data-i="3"><span class="k">Phase 04 · Weeks 2&ndash;8</span><b>Drilling &amp; near-surface</b>
+            <p>Shot holes and upholes are drilled and logged. Low-velocity-layer refraction gives the statics that decide whether a deep reflector images sharply.</p></div>
+          <div class="tl-step" data-i="4"><span class="k">Phase 05 · Weeks 3&ndash;16</span><b>Layout &amp; recording</b>
+            <p>Cabled, distributed or nodal spreads go down; vibrator sweeps or shot points energise the ground. Production is measured in source points per day.</p></div>
+          <div class="tl-step" data-i="5"><span class="k">Phase 06 · Daily, in parallel</span><b>In-field processing &amp; QC</b>
+            <p>Field processing travels with the crew. Noise, statics and coverage problems surface while the spread is still live and can still be fixed.</p></div>
+          <div class="tl-step" data-i="6"><span class="k">Phase 07 · Demob &amp; office</span><b>Reinstatement &amp; final processing</b>
+            <p>Lines are reinstated, the camp is cleared, and the data goes through statics, velocity analysis, noise attenuation and migration on ProMAX to an interpretable volume.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="tl-media" id="tlMedia">
+          <div class="tl-frame on" data-i="0"><video autoplay muted loop playsinline preload="metadata" poster="assets/ph-mobilise-poster.jpg"><source src="assets/ph-mobilise.webm" type="video/webm"></video></div>
+          <div class="tl-frame" data-i="1"><video muted loop playsinline preload="none" poster="assets/ph-permit-poster.jpg"><source src="assets/ph-permit.webm" type="video/webm"></video></div>
+          <div class="tl-frame" data-i="2"><video muted loop playsinline preload="none" poster="assets/ph-clearing-poster.jpg"><source src="assets/ph-clearing.webm" type="video/webm"></video></div>
+          <div class="tl-frame" data-i="3"><video muted loop playsinline preload="none" poster="assets/ph-drill-poster.jpg"><source src="assets/ph-drill.webm" type="video/webm"></video></div>
+          <div class="tl-frame" data-i="4"><video muted loop playsinline preload="none" poster="assets/ph-record-poster.jpg"><source src="assets/ph-record.webm" type="video/webm"></video></div>
+          <div class="tl-frame" data-i="5"><img src="assets/recorder.jpg" alt="An AGS recording unit acting as the field QC centre"></div>
+          <div class="tl-frame" data-i="6"><canvas id="foldCanvas" aria-label="A seismic volume filling with fold as the programme advances"></canvas></div>
+          <div class="vbadge"><i></i><span id="tlBadge">Phase 01 — Mobilisation</span></div>
+          <div class="tl-meta"><span id="tlLeft">Vibroseis · dynamite · shallow water</span><span id="tlRight">AGS field record</span></div>
+        </div>
+        <p class="scene-note">Footage and stills from AGS crews. Phase 07 renders the migrated volume the programme exists to produce.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper">
+    <div class="wrap">
+      <header class="shead">
+        <div><p class="eyebrow">Media library</p><h2>Field record — motion and stills.</h2></div>
+        <p class="body-dim">Clips and photographs from AGS operations. Full-resolution originals, and project-specific sets tied to named surveys, are held by the company and supplied on request.</p>
+      </header>
+      <div class="mgal">
+        <figure class="w6"><video autoplay muted loop playsinline preload="none" poster="assets/vid-convoy-poster.jpg"><source src="assets/vid-convoy.webm" type="video/webm"></video><figcaption>Vibroseis convoy · populated ground</figcaption></figure>
+        <figure class="w6"><video autoplay muted loop playsinline preload="none" poster="assets/vid-forest-poster.jpg"><source src="assets/vid-forest.webm" type="video/webm"></video><figcaption>Line clearing · dense bush</figcaption></figure>
+        <figure class="w4"><video muted loop playsinline preload="none" poster="assets/vid-water-poster.jpg"><source src="assets/vid-water.webm" type="video/webm"></video><figcaption>Cable boats · shallow water</figcaption></figure>
+        <figure class="w4"><video muted loop playsinline preload="none" poster="assets/vid-desert-poster.jpg"><source src="assets/vid-desert.webm" type="video/webm"></video><figcaption>Transit · open scrub</figcaption></figure>
+        <figure class="w4"><video muted loop playsinline preload="none" poster="assets/vid-recorder-poster.jpg"><source src="assets/vid-recorder.webm" type="video/webm"></video><figcaption>Recording unit · rock desert</figcaption></figure>
+        <figure><img src="assets/hero.jpg" alt="Vibroseis fleet mobilised on a block" loading="lazy"><figcaption>Fleet mobilised</figcaption></figure>
+        <figure><img src="assets/forest.jpg" alt="Drilling unit in dense bush" loading="lazy"><figcaption>Shot-hole drilling</figcaption></figure>
+        <figure><img src="assets/forest2.jpg" alt="Crew laying a spread in long grass" loading="lazy"><figcaption>Laying the spread</figcaption></figure>
+        <figure><img src="assets/rec.jpg" alt="Recording truck on a hillside" loading="lazy"><figcaption>Recording truck</figcaption></figure>
+        <figure><img src="assets/swoboats.jpg" alt="Shallow water cable boats" loading="lazy"><figcaption>Transition zone</figcaption></figure>
+        <figure><img src="assets/drill.jpg" alt="Shallow drilling rig" loading="lazy"><figcaption>Uphole drilling</figcaption></figure>
+        <figure><img src="assets/vibedesert.jpg" alt="Vibroseis trucks in convoy" loading="lazy"><figcaption>Vibroseis transit</figcaption></figure>
+        <figure><img src="assets/terrain.jpg" alt="Survey vehicle in dense terrain" loading="lazy"><figcaption>Access &amp; support</figcaption></figure>
+      </div>
+      <p class="form-note" style="margin-top:22px;max-width:70ch">Note for AGS: the phases above describe how an AGS programme runs, not one named survey. Client names, block names, dates, line kilometres and channel counts are deliberately absent &mdash; send the real project records and they drop straight into this timeline.</p>
+    </div>
+  </section>
+
+  <section class="cta-band band">
+    <video class="ctavid" autoplay muted loop playsinline preload="none" poster="assets/vid-convoy-poster.jpg" aria-hidden="true">
+      <source src="assets/vid-convoy.webm" type="video/webm">
+    </video>
+    <div class="wrap cta-in">
+      <div>
+        <p class="eyebrow on-dark">Your programme</p>
+        <h2 style="margin-top:14px">Every block runs differently.<br>Tell us about yours.</h2>
+        <p>Send the basin, the target depth and the access constraints, and we will come back with a geometry, a terrain plan and a production estimate you can hold us to.</p>
+      </div>
+      <a class="btn btn-c btn-arrow" href="#/contact">Request a survey design</a>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════ CONTACT ════════════════════ -->
+<div class="page" id="p-contact" hidden>
+  <section class="phead" style="min-height:min(44svh,360px)">
+    <img src="assets/swoboats.jpg" alt="AGS shallow water cable boats">
+    <div class="hero-scrim"></div>
+    <div class="wrap phead-in">
+      <p class="crumb"><a href="#/">Home</a> / Contact</p>
+      <h1>Tell us the objective.</h1>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap two top">
+      <div>
+        <p class="eyebrow">Enquiries</p>
+        <h2 style="margin-top:14px">We will design the survey around it.</h2>
+        <p class="lede" style="margin-top:18px">Send the basin, the target depth and the access constraints. A survey designer will come back with a geometry, a terrain plan and an honest view of what the ground will and will not give you.</p>
+        <div class="rows" style="margin-top:28px">
+          <div class="row"><span class="k">HQ</span><b>Muscat, Oman</b><span class="v">Registered · operational · logistics</span></div>
+          <div class="row"><span class="k">EA</span><b>Tanzania &amp; Uganda</b><span class="v">Operational base · registered office</span></div>
+          <div class="row"><span class="k">NA</span><b>Egypt</b><span class="v">Operational base · logistics</span></div>
+          <div class="row"><span class="k">GU</span><b>Dubai, UAE</b><span class="v">Registered office</span></div>
+          <div class="row"><span class="k">IQ</span><b>Kurdistan</b><span class="v">Registered office</span></div>
+          <div class="row"><span class="k">TR</span><b>Türkiye</b><span class="v">Registered office</span></div>
+          <div class="row"><span class="k">UK</span><b>IMC GSL — Killamarsh, Sheffield</b><span class="v">Sister company · logistics</span></div>
+          <div class="row"><span class="k">@</span><b><a href="mailto:info@ag-services.org" style="color:var(--green);text-decoration:none">info@ag-services.org</a></b><span class="v">General enquiries</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="scene scene-dark" style="height:clamp(220px,28svh,300px);margin-bottom:26px"><canvas id="rtkCanvas" aria-label="A station acquiring a real-time kinematic GPS fix on a survey grid"></canvas></div>
+        <form id="enq" novalidate>
+          <div class="f2">
+            <div class="field"><label for="nm">Name</label><input id="nm" name="nm" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="co">Company</label><input id="co" name="co" type="text" autocomplete="organization"></div>
+          </div>
+          <div class="f2">
+            <div class="field"><label for="em">Email</label><input id="em" name="em" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="ct">Country of operation</label><input id="ct" name="ct" type="text"></div>
+          </div>
+          <div class="field"><label for="sv">Enquiry type</label>
+            <select id="sv" name="sv">
+              <option>Survey evaluation &amp; design</option>
+              <option>Land seismic data acquisition</option>
+              <option>In-field processing &amp; QC</option>
+              <option>Seismic data processing</option>
+              <option>Uphole &amp; LVL surveys</option>
+              <option>RTK survey &amp; shallow geophysics</option>
+              <option>Careers</option>
+              <option>Supplier / partnership</option>
+            </select>
+          </div>
+          <div class="field"><label for="msg">Project outline</label><textarea id="msg" name="msg" placeholder="Basin, target depth, terrain, indicative timing"></textarea></div>
+          <button class="btn btn-a" type="submit" style="cursor:pointer;justify-content:center">Send enquiry</button>
+          <p class="form-note" id="fnote">This concept build has no mail backend wired up yet — submissions are validated in the browser only.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="foot-logo" src="assets/logofooter.png" width="250" height="99" alt="AGS — Africa Geophysical Services">
+        <p style="margin-top:16px;font-size:13.5px;max-width:40ch;color:#C6DED1">Providing integrated geophysical solutions across geographical boundaries. Land seismic data acquisition and processing, headquartered in Muscat, Sultanate of Oman.</p>
+        <p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em"><a href="mailto:info@ag-services.org">info@ag-services.org</a></p>
+        <div class="creds">
+          <img src="assets/logoiagc.png" width="134" height="95" alt="Proud member of the IAGC — International Association of Geophysical Contractors">
+          <img src="assets/logoimcgsl.png" width="155" height="95" alt="IMC GSL, a subsidiary of AGS LLC">
+        </div>
+      </div>
+      <div><h4>Company</h4><ul>
+        <li><a href="#/about">About AGS</a></li><li><a href="#/about">Leadership</a></li>
+        <li><a href="#/qhse">QHSE</a></li><li><a href="#/careers">Careers</a></li><li><a href="#/contact">Contact</a></li></ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="#/services">Survey design</a></li><li><a href="#/services">Data acquisition</a></li>
+        <li><a href="#/services">Processing</a></li><li><a href="#/services">Uphole &amp; LVL</a></li>
+        <li><a href="#/technology">Technology &amp; fleet</a></li></ul></div>
+      <div><h4>Operations</h4><ul>
+        <li><a href="#/projects">Programmes</a></li><li><a href="#/projects">Media library</a></li>
+        <li><a href="#/operations">Terrain</a></li>
+        <li><a href="#/contact">Oman · HQ</a></li><li><a href="#/contact">Tanzania · Egypt · Uganda</a></li>
+        <li><a href="#/contact">Dubai · Kurdistan · Türkiye · UK</a></li></ul></div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Africa Geophysical Services LLC</span>
+      <span>ISO 9001:2015 · Zero harm</span>
+      <span>Concept redesign — not the live ag-services.org</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var HAS3D = (function(){ try{ var c=document.createElement('canvas');
+  return !!(window.WebGLRenderingContext && (c.getContext('webgl')||c.getContext('experimental-webgl'))) && !!window.THREE; }catch(e){ return false; } })();
+var DPR = Math.min(window.devicePixelRatio||1, 1.75);
+var clamp = function(v,a,b){ return v<a?a:(v>b?b:v); };
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ═════════ router ═════════ */
+var ROUTES = ['home','about','services','technology','projects','operations','qhse','careers','contact'];
+var resizers = [];
+function route(){
+  var h = (location.hash||'#/').replace('#/','').split('?')[0] || 'home';
+  if(ROUTES.indexOf(h) < 0) h = 'home';
+  for(var i=0;i<ROUTES.length;i++){
+    var el = document.getElementById('p-'+ROUTES[i]);
+    if(el) el.hidden = (ROUTES[i] !== h);
+  }
+  var links = document.querySelectorAll('#navLinks a, .drawer a');
+  for(var j=0;j<links.length;j++){
+    var t = links[j].getAttribute('href').replace('#/','') || 'home';
+    links[j].classList.toggle('active', t === h);
+  }
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('burger').setAttribute('aria-expanded','false');
+  window.scrollTo(0,0);
+  initRoute(h);
+  cacheEls();
+  primeMotion();
+  syncVideos();
+  setTimeout(function(){ for(var k=0;k<resizers.length;k++) resizers[k](); onScroll(); primeMotion(); }, 40);
+}
+window.addEventListener('hashchange', route);
+
+var burger = document.getElementById('burger');
+burger.addEventListener('click', function(){
+  var d = document.getElementById('drawer');
+  var open = d.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+
+/* ═════════ scroll driver ═════════ */
+var nav = document.getElementById('nav');
+var plates, scrub, scrubLayers, scrubNum, scrubT, scrubD, scrubProg, surveySteps;
+var SCRUB = [
+  ['Open desert &amp; scrub','Vibroseis convoys move fast over open ground. The limit is dust, heat and the distance between camp and block — not the geophysics.'],
+  ['Forest track &amp; cleared line','Access is cut, used and reinstated. Line clearing is a permitting and environmental decision before it is a production one.'],
+  ['Populated areas','Cable-free nodal spreads and controlled vibroseis sweeps let a survey cross villages, roads and farmland without shutting them down.'],
+  ['Dense bush','Where a cable spread cannot go, the crew and the nodes go on foot. Progress is measured in stations, not kilometres.'],
+  ['Shallow water &amp; transition zone','Recording barges and cable boats carry the spread from the shoreline into water too shallow for a marine vessel.'],
+  ['Rock desert','Hard ground, no cover, long transits. The recording unit becomes the camp, the office and the QC centre.']
+];
+function cacheEls(){
+  plates = [].slice.call(document.querySelectorAll('.plate'));
+  scrub = document.getElementById('scrub');
+  scrubLayers = [].slice.call(document.querySelectorAll('.scrub-layer'));
+  scrubNum = document.getElementById('scrubNum'); scrubT = document.getElementById('scrubT');
+  scrubD = document.getElementById('scrubD'); scrubProg = document.getElementById('scrubProg');
+  surveySteps = [].slice.call(document.querySelectorAll('.survey-step'));
+  cacheFocus();
+}
+var surveyProg = 0, queued = false, vtick = 0;
+function onScroll(){
+  if(queued) return; queued = true;
+  requestAnimationFrame(function(){
+    queued = false;
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var vh = window.innerHeight;
+    if(nav){
+      nav.classList.toggle('stuck', y > 8);
+      var hp = document.getElementById('heroPin');
+      if(!hp || hp.offsetParent === null) nav.classList.remove('over');
+    }
+
+    if(plates && !RM){
+      for(var j=0;j<plates.length;j++){
+        var r = plates[j].getBoundingClientRect();
+        if(r.bottom < -200 || r.top > vh+200) continue;
+        var k = clamp((r.top + r.height/2 - vh/2)/vh, -1, 1);
+        plates[j].style.setProperty('--z', (-k*110).toFixed(1));
+        plates[j].style.setProperty('--rx', (k*2.4).toFixed(2));
+      }
+    }
+    if(scrub && scrub.offsetParent !== null){
+      var sr = scrub.getBoundingClientRect();
+      var p = clamp((-sr.top)/(sr.height - vh), 0, 1);
+      var n = SCRUB.length, f = p*(n-0.0001), idx = Math.floor(f), frac = f-idx;
+      for(var i=0;i<scrubLayers.length;i++){
+        var o = 0, sc = 1.06;
+        if(i === idx){ o = 1; sc = 1.10 - frac*0.10; }
+        else if(i === idx+1){ o = frac; sc = 1.16 - frac*0.06; }
+        else if(i === idx-1){ o = 0; }
+        scrubLayers[i].style.opacity = o;
+        scrubLayers[i].style.transform = 'scale('+sc.toFixed(3)+')';
+      }
+      if(scrubProg) scrubProg.style.width = (p*100).toFixed(1)+'%';
+      if(scrubT && scrubT.dataset.i !== String(idx)){
+        scrubT.dataset.i = String(idx);
+        scrubNum.textContent = ('0'+(idx+1))+' / 0'+n;
+        scrubT.innerHTML = SCRUB[idx][0];
+        scrubD.innerHTML = SCRUB[idx][1];
+      }
+    }
+    heroSliderScroll(vh);
+    motionSweep(vh);
+    updateFocus(vh);
+    timelineScroll(vh);
+    if((++vtick % 6) === 0) videoViewportSync();
+    var sv = document.getElementById('survey');
+    if(sv && sv.offsetParent !== null){
+      var vr = sv.getBoundingClientRect();
+      surveyProg = clamp((-vr.top)/(vr.height - vh), 0, 1);
+      var step = Math.min(4, Math.floor(surveyProg*5.0));
+      for(var s=0;s<surveySteps.length;s++) surveySteps[s].classList.toggle('on', s === step);
+    }
+  });
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('resize', function(){ for(var k=0;k<resizers.length;k++) resizers[k](); onScroll(); });
+
+/* ═════════ render scheduler ═════════ */
+var scenes = [];
+function register(canvas, tick){
+  var e = {tick:tick, visible:false};
+  scenes.push(e);
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ e.visible = es[0].isIntersecting && canvas.offsetParent !== null; },{rootMargin:'140px'}).observe(canvas);
+  } else e.visible = true;
+  return e;
+}
+var t0 = performance.now(), rmF = 0;
+function loop(now){
+  var t = (now-t0)/1000;
+  for(var i=0;i<scenes.length;i++) if(scenes[i].visible) scenes[i].tick(t);
+  if(RM && ++rmF > 120) return;
+  requestAnimationFrame(loop);
+}
+function fit(renderer, camera, el){
+  var w = el.clientWidth||1, h = el.clientHeight||1;
+  renderer.setSize(w,h,false); camera.aspect = w/h; camera.updateProjectionMatrix();
+}
+
+/* ═════════ 1. HERO — wavefield through strata ═════════ */
+function heroScene(){
+  var cv = document.getElementById('heroCanvas'); if(!cv||!HAS3D) return;
+  var host = cv.parentElement;
+  var r = new THREE.WebGLRenderer({canvas:cv, antialias:false, alpha:true});
+  r.setPixelRatio(DPR); r.setClearColor(0x000000,0);
+  var sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(42,1,0.1,400);
+  var NX=128,NZ=92,L=6,SX=82,SZ=60,GY=3.6,n=0,total=NX*NZ*L;
+  var pos=new Float32Array(total*3), aR=new Float32Array(total), aD=new Float32Array(total), aS=new Float32Array(total);
+  for(var l=0;l<L;l++) for(var i=0;i<NX;i++) for(var j=0;j<NZ;j++){
+    var x=(i/(NX-1)-0.5)*SX, z=(j/(NZ-1)-0.5)*SZ;
+    var rel=Math.sin(x*0.06+l*0.5)*1.2+Math.cos(z*0.08-l*0.3)*0.85+Math.sin((x+z)*0.03)*0.7;
+    pos[n*3]=x; pos[n*3+1]=-l*GY+rel; pos[n*3+2]=z;
+    aR[n]=Math.sqrt(x*x+z*z); aD[n]=l*0.30; aS[n]=Math.random(); n++;
+  }
+  var g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  g.setAttribute('aR',new THREE.BufferAttribute(aR,1));
+  g.setAttribute('aD',new THREE.BufferAttribute(aD,1));
+  g.setAttribute('aS',new THREE.BufferAttribute(aS,1));
+  var U={uTime:{value:0},uPR:{value:DPR},uAmp:{value:2.6},uPeriod:{value:7.0},
+    uHi:{value:new THREE.Color(0x8FF2C0)},uLo:{value:new THREE.Color(0xFFD489)},uBase:{value:new THREE.Color(0xBFE6CE)}};
+  var m=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+    vertexShader:['attribute float aR;attribute float aD;attribute float aS;','uniform float uTime,uPR,uAmp,uPeriod;',
+      'varying float vA;varying float vF;',
+      'float rk(float t,float f){float x=3.14159265*f*t;float x2=x*x;return (1.0-2.0*x2)*exp(-x2);}',
+      'void main(){vec3 p=position;float sl=0.105;float tc=mod(uTime,uPeriod);',
+      'float a=rk(tc-aD-aR*sl,0.62)+rk(tc+uPeriod-aD-aR*sl,0.62);a*=exp(-aR*0.030);vA=a;p.y+=a*uAmp;',
+      'vec4 mv=modelViewMatrix*vec4(p,1.0);vF=clamp(1.0-(-mv.z)/135.0,0.0,1.0);',
+      'gl_PointSize=(1.5+abs(a)*3.6+aS*0.6)*uPR*(48.0/max(1.0,-mv.z));gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['uniform vec3 uHi,uLo,uBase;varying float vA;varying float vF;',
+      'void main(){vec2 d=gl_PointCoord-vec2(0.5);float k=1.0-smoothstep(0.24,0.5,length(d));if(k<=0.003)discard;',
+      'float a=abs(vA);vec3 c=mix(uBase,vA>0.0?uHi:uLo,clamp(a*2.6,0.0,1.0));',
+      'gl_FragColor=vec4(c,(0.055+a*0.95)*k*vF);}'].join('\n')});
+  sc.add(new THREE.Points(g,m));
+  var rg=new THREE.BufferGeometry(), rp=[];
+  for(var s=0;s<=180;s++){var th=s/180*Math.PI*2;rp.push(Math.cos(th),0,Math.sin(th));}
+  rg.setAttribute('position',new THREE.Float32BufferAttribute(rp,3));
+  var rm2=new THREE.LineBasicMaterial({color:0xFFE6B0,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false});
+  var ring=new THREE.Line(rg,rm2); ring.position.y=1.3; sc.add(ring);
+  var mx=0,my=0,tx=0,ty=0;
+  window.addEventListener('pointermove',function(e){tx=e.clientX/window.innerWidth-0.5;ty=e.clientY/window.innerHeight-0.5;},{passive:true});
+  var rs=function(){ fit(r,cam,host); }; resizers.push(rs); rs();
+  var E = register(cv,function(t){
+    if(!RM) U.uTime.value=t;
+    mx+=(tx-mx)*0.05; my+=(ty-my)*0.05;
+    var ang = RM?0.42:t*0.042, rad=38;
+    cam.position.set(Math.sin(ang)*rad+mx*6, 13-my*4, Math.cos(ang)*rad);
+    cam.lookAt(-14,-10.5,0);
+    var tc=U.uTime.value%U.uPeriod.value, rr=1+tc*9.2;
+    ring.scale.set(rr,1,rr); rm2.opacity=Math.max(0,0.3*Math.exp(-tc*0.62));
+    r.render(sc,cam);
+  });
+  if(RM){ E.visible=true; U.uTime.value=1.6; }
+}
+
+/* ═════════ 2. SURVEY BUILD — scroll-driven 3D ═════════ */
+function surveyScene(){
+  var cv = document.getElementById('surveyCanvas'); if(!cv||!HAS3D) return;
+  var r=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  r.setPixelRatio(DPR); r.setClearColor(0x000000,0);
+  var sc=new THREE.Scene(), cam=new THREE.PerspectiveCamera(38,1,0.1,600);
+  var SIZE=120, RLI=12, SLI=14, ST=2.4;      // receiver-line interval, source-line interval, station spacing
+
+  // ground graticule
+  var gl=[], half=SIZE/2;
+  for(var a=-half;a<=half;a+=10){ gl.push(-half,0,a, half,0,a, a,0,-half, a,0,half); }
+  var gg=new THREE.BufferGeometry(); gg.setAttribute('position',new THREE.Float32BufferAttribute(gl,3));
+  sc.add(new THREE.LineSegments(gg,new THREE.LineBasicMaterial({color:0xCBDDD2,transparent:true,opacity:1})));
+
+  function stations(interval, along){
+    var P=[],O=[],k=0, lines=Math.floor(SIZE/interval)+1, per=Math.floor(SIZE/ST)+1;
+    for(var li=0; li<lines; li++){
+      var c=-half+li*interval;
+      for(var si=0; si<per; si++){
+        var d=-half+si*ST;
+        if(along==='x'){ P.push(d,0,c); } else { P.push(c,0,d); }
+        O.push((li/lines)*0.55 + (si/per)*0.45); k++;
+      }
+    }
+    return {P:P,O:O,n:k};
+  }
+  function ptCloud(data, color, size){
+    var g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(data.P,3));
+    g.setAttribute('aO',new THREE.Float32BufferAttribute(data.O,1));
+    var U={uProg:{value:0},uPR:{value:DPR},uCol:{value:new THREE.Color(color)},uSize:{value:size}};
+    var m=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,
+      vertexShader:['attribute float aO;uniform float uProg,uPR,uSize;varying float vV;',
+        'void main(){float d=uProg-aO;vV=clamp(d*6.0,0.0,1.0);',
+        'vec3 p=position; p.y += (1.0-vV)*3.0;',
+        'vec4 mv=modelViewMatrix*vec4(p,1.0);',
+        'gl_PointSize=uSize*uPR*(330.0/max(1.0,-mv.z))*(0.45+0.55*vV);gl_Position=projectionMatrix*mv;}'].join('\n'),
+      fragmentShader:['uniform vec3 uCol;varying float vV;',
+        'void main(){vec2 d=gl_PointCoord-vec2(0.5);float k=1.0-smoothstep(0.26,0.5,length(d));',
+        'if(k<=0.003||vV<=0.01)discard;gl_FragColor=vec4(uCol,k*vV*0.95);}'].join('\n')});
+    var pts=new THREE.Points(g,m); sc.add(pts); return {pts:pts,U:U};
+  }
+  var rec = ptCloud(stations(RLI,'x'), 0x0F7A4A, 2.3);
+  var src = ptCloud(stations(SLI,'z'), 0xC08A16, 2.7);
+
+  // fold / midpoint bins
+  var BIN=3.0, bn=Math.floor(SIZE/BIN), BP=[], BF=[], BO=[];
+  for(var bi=0;bi<bn;bi++) for(var bj=0;bj<bn;bj++){
+    var bx=-half+bi*BIN+BIN/2, bz=-half+bj*BIN+BIN/2;
+    var rad=Math.sqrt(bx*bx+bz*bz)/half;
+    var fold=clamp(1.0-rad*0.72,0,1)*(0.72+0.28*Math.sin(bx*0.12)*Math.cos(bz*0.1));
+    BP.push(bx,0.12,bz); BF.push(Math.max(0.05,fold)); BO.push(0.25+rad*0.6);
+  }
+  var bg=new THREE.BufferGeometry();
+  bg.setAttribute('position',new THREE.Float32BufferAttribute(BP,3));
+  bg.setAttribute('aF',new THREE.Float32BufferAttribute(BF,1));
+  bg.setAttribute('aO',new THREE.Float32BufferAttribute(BO,1));
+  var BU={uProg:{value:0},uPR:{value:DPR},uLo:{value:new THREE.Color(0xCDE6D8)},uHi:{value:new THREE.Color(0x083D27)}};
+  var bins=new THREE.Points(bg,new THREE.ShaderMaterial({uniforms:BU,transparent:true,depthWrite:false,
+    vertexShader:['attribute float aF;attribute float aO;uniform float uProg,uPR;varying float vF;varying float vV;',
+      'void main(){vV=clamp((uProg-aO)*5.0,0.0,1.0);vF=aF;vec4 mv=modelViewMatrix*vec4(position,1.0);',
+      'gl_PointSize=(3.0+aF*5.0)*uPR*(330.0/max(1.0,-mv.z))*vV;gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['uniform vec3 uLo,uHi;varying float vF;varying float vV;',
+      'void main(){vec2 d=gl_PointCoord-vec2(0.5);if(max(abs(d.x),abs(d.y))>0.42)discard;if(vV<=0.01)discard;',
+      'gl_FragColor=vec4(mix(uLo,uHi,vF),vV*(0.28+vF*0.6));}'].join('\n')}));
+  bins.visible=false; sc.add(bins);
+
+  // expanding source ring
+  var rp=[]; for(var s=0;s<=140;s++){var th=s/140*Math.PI*2;rp.push(Math.cos(th),0,Math.sin(th));}
+  var rgg=new THREE.BufferGeometry(); rgg.setAttribute('position',new THREE.Float32BufferAttribute(rp,3));
+  var ringM=new THREE.LineBasicMaterial({color:0xC08A16,transparent:true,opacity:0,linewidth:2});
+  var ring=new THREE.Line(rgg,ringM); ring.position.y=0.3; sc.add(ring);
+
+  var rs=function(){ fit(r,cam,cv.parentElement===null?cv:cv); }; 
+  var fitSelf=function(){ var w=cv.clientWidth||1,h=cv.clientHeight||1; r.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); };
+  resizers.push(fitSelf); fitSelf();
+
+  var E = register(cv,function(t){
+    var p = RM ? 0.85 : surveyProg;
+    rec.U.uProg.value = clamp((p-0.16)/0.34,0,1.2);
+    src.U.uProg.value = clamp((p-0.44)/0.30,0,1.2);
+    BU.uProg.value    = clamp((p-0.66)/0.32,0,1.2);
+    bins.visible = p > 0.62;
+    var rr = 1 + ((t*0.5)%1)*46;
+    ring.scale.set(rr,1,rr);
+    ringM.opacity = (p>0.44 && p<0.82) ? Math.max(0,0.45*(1-((t*0.5)%1))) : 0;
+    var ang = -0.5 + p*0.9, dist = 150 - p*38, hgt = 118 - p*66;
+    cam.position.set(Math.sin(ang)*dist, hgt, Math.cos(ang)*dist);
+    cam.lookAt(0,0,0);
+    r.render(sc,cam);
+  });
+  E.visible = true;
+}
+
+/* ═════════ 3. MIGRATED VOLUME ═════════ */
+function volumeScene(){
+  var cv=document.getElementById('volCanvas'); if(!cv||!HAS3D) return;
+  var host=document.getElementById('volCard');
+  var r=new THREE.WebGLRenderer({canvas:cv,antialias:false,alpha:true});
+  r.setPixelRatio(DPR); r.setClearColor(0x000000,0);
+  var sc=new THREE.Scene(), cam=new THREE.PerspectiveCamera(40,1,0.1,500);
+  var NX=104,NZ=104,NL=9,SX=44,SZ=44,k=0,total=NX*NZ*NL;
+  var pos=new Float32Array(total*3), amp=new Float32Array(total), xn=new Float32Array(total);
+  for(var l=0;l<NL;l++) for(var i=0;i<NX;i++) for(var j=0;j<NZ;j++){
+    var x=(i/(NX-1)-0.5)*SX, z=(j/(NZ-1)-0.5)*SZ;
+    var fold=3.2*Math.exp(-((x-2)*(x-2)+z*z)/260), fault = x>6 ? -1.5 : 0;
+    pos[k*3]=x; pos[k*3+1]=-l*2.15+fold*(1-l*0.05)+fault+Math.sin(z*0.16+l)*0.35; pos[k*3+2]=z;
+    amp[k]=Math.sin(l*1.7+0.5)*(0.55+0.45*Math.cos(x*0.12+z*0.07));
+    xn[k]=(x+SX/2)/SX; k++;
+  }
+  var g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  g.setAttribute('aAmp',new THREE.BufferAttribute(amp,1));
+  g.setAttribute('aXn',new THREE.BufferAttribute(xn,1));
+  var U={uPR:{value:DPR},uSlice:{value:0.5},
+    uPos:{value:new THREE.Color(0x0F7A4A)},uNeg:{value:new THREE.Color(0xB9601F)},uBase:{value:new THREE.Color(0xBFD3C6)}};
+  sc.add(new THREE.Points(g,new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,
+    vertexShader:['attribute float aAmp;attribute float aXn;uniform float uPR,uSlice;varying float vA;varying float vH;',
+      'void main(){vA=aAmp;float d=abs(aXn-uSlice);vH=exp(-d*d*210.0);vec4 mv=modelViewMatrix*vec4(position,1.0);',
+      'gl_PointSize=(1.7+vH*2.6)*uPR*(26.0/max(1.0,-mv.z));gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['uniform vec3 uPos,uNeg,uBase;varying float vA;varying float vH;',
+      'void main(){vec2 d=gl_PointCoord-vec2(0.5);float k=1.0-smoothstep(0.24,0.5,length(d));if(k<=0.003)discard;',
+      'float a=abs(vA);vec3 c=mix(uBase,vA>0.0?uPos:uNeg,clamp(a*1.2,0.0,1.0)*(0.3+0.7*vH));',
+      'gl_FragColor=vec4(c,(0.5+vH*0.5*a)*k);}'].join('\n')})));
+  var box=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(SX,NL*2.15+5,SZ)),
+    new THREE.LineBasicMaterial({color:0xD3E2D8,transparent:true,opacity:.95}));
+  box.position.y=-(NL*2.15)/2+1.2; sc.add(box);
+  var drag=false,lx=0,rot=0.6;
+  cv.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;cv.setPointerCapture(e.pointerId);});
+  cv.addEventListener('pointerup',function(){drag=false;});
+  cv.addEventListener('pointercancel',function(){drag=false;});
+  cv.addEventListener('pointermove',function(e){if(!drag)return;rot+=(e.clientX-lx)*0.006;lx=e.clientX;});
+  var fs=function(){ fit(r,cam,host); }; resizers.push(fs); fs();
+  register(cv,function(t){
+    if(!RM){ U.uSlice.value=0.5+0.34*Math.sin(t*0.40); if(!drag) rot+=0.0016; }
+    var rad=42; cam.position.set(Math.sin(rot)*rad,11,Math.cos(rot)*rad); cam.lookAt(0,-7,0);
+    r.render(sc,cam);
+  });
+}
+
+/* ═════════ 4. GLOBE ═════════ */
+function globeScene(){
+  var cv=document.getElementById('globeCanvas'), stage=document.getElementById('globeStage');
+  if(!cv||!stage||!HAS3D) return;
+  var SITES=[
+    {n:'Muscat',c:'Oman',lat:23.5859,lon:58.4059,hq:true,dy:27},
+    {n:'Dar es Salaam',c:'Tanzania',lat:-6.7924,lon:39.2083,dy:10},
+    {n:'Cairo',c:'Egypt',lat:30.0444,lon:31.2357,dy:-16},
+    {n:'Dubai',c:'UAE',lat:25.2048,lon:55.2708,dy:6},
+    {n:'Kampala',c:'Uganda',lat:0.3476,lon:32.5825,dy:-8},
+    {n:'Erbil',c:'Kurdistan',lat:36.1911,lon:44.0091,dy:-5},
+    {n:'Istanbul',c:'Türkiye',lat:41.0082,lon:28.9784,dy:-19},
+    {n:'Sheffield',c:'UK',lat:53.3811,lon:-1.4701,dy:-10}
+  ];
+  var R=10;
+  function ll(lat,lon,rr){var ph=(90-lat)*Math.PI/180,th=(lon+180)*Math.PI/180;
+    return new THREE.Vector3(-rr*Math.sin(ph)*Math.cos(th),rr*Math.cos(ph),rr*Math.sin(ph)*Math.sin(th));}
+  var r=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  r.setPixelRatio(DPR); r.setClearColor(0x000000,0);
+  var sc=new THREE.Scene(), cam=new THREE.PerspectiveCamera(36,1,0.1,200);
+  cam.position.set(0,5,41);
+  var world=new THREE.Group(); sc.add(world);
+  var N=2600, dp=new Float32Array(N*3), dl=new Float32Array(N), ga=Math.PI*(3-Math.sqrt(5));
+  for(var i=0;i<N;i++){var y=1-(i/(N-1))*2, rr=Math.sqrt(Math.max(0,1-y*y)), th=ga*i;
+    dp[i*3]=Math.cos(th)*rr*R; dp[i*3+1]=y*R; dp[i*3+2]=Math.sin(th)*rr*R; dl[i]=Math.abs(y);}
+  var dg=new THREE.BufferGeometry();
+  dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
+  dg.setAttribute('aLat',new THREE.BufferAttribute(dl,1));
+  world.add(new THREE.Points(dg,new THREE.ShaderMaterial({
+    uniforms:{uPR:{value:DPR},uCol:{value:new THREE.Color(0x63D9A0)}},transparent:true,depthWrite:false,
+    vertexShader:['attribute float aLat;uniform float uPR;varying float vF;varying float vL;',
+      'void main(){vL=aLat;vec4 mv=modelViewMatrix*vec4(position,1.0);vF=clamp((mv.z+10.0)/20.0,0.0,1.0);',
+      'gl_PointSize=2.1*uPR;gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['uniform vec3 uCol;varying float vF;varying float vL;',
+      'void main(){vec2 d=gl_PointCoord-vec2(0.5);if(length(d)>0.5)discard;',
+      'gl_FragColor=vec4(uCol,(0.30+0.70*vF)*(1.0-vL*0.35));}'].join('\n')})));
+  var gl2=[];
+  for(var m2=0;m2<12;m2++){var lon=m2*30-180;
+    for(var a=-88;a<88;a+=4){var p1=ll(a,lon,R*1.001),p2=ll(a+4,lon,R*1.001);gl2.push(p1.x,p1.y,p1.z,p2.x,p2.y,p2.z);}}
+  for(var pl=-60;pl<=60;pl+=30){for(var b=-180;b<180;b+=4){var q1=ll(pl,b,R*1.001),q2=ll(pl,b+4,R*1.001);gl2.push(q1.x,q1.y,q1.z,q2.x,q2.y,q2.z);}}
+  var gg=new THREE.BufferGeometry(); gg.setAttribute('position',new THREE.Float32BufferAttribute(gl2,3));
+  world.add(new THREE.LineSegments(gg,new THREE.LineBasicMaterial({color:0x1E6B49,transparent:true,opacity:1})));
+  world.add(new THREE.Mesh(new THREE.SphereGeometry(R*0.985,48,48),new THREE.MeshBasicMaterial({color:0x07341F})));
+  sc.add(new THREE.Mesh(new THREE.SphereGeometry(R*1.16,44,44),new THREE.ShaderMaterial({
+    transparent:true,side:THREE.BackSide,depthWrite:false,
+    uniforms:{uCol:{value:new THREE.Color(0x2FC47C)}},
+    vertexShader:'varying vec3 vN;void main(){vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+    fragmentShader:'uniform vec3 uCol;varying vec3 vN;void main(){float f=pow(0.66-dot(vN,vec3(0.0,0.0,1.0)),3.4);gl_FragColor=vec4(uCol,clamp(f,0.0,1.0)*0.30);}'})));
+  var hub=ll(SITES[0].lat,SITES[0].lon,R), arcU={uTime:{value:0}};
+  SITES.forEach(function(s,idx){
+    var p=ll(s.lat,s.lon,R); s.v=p; if(idx===0) return;
+    var mid=hub.clone().add(p).multiplyScalar(0.5);
+    var lift=1+0.52*(hub.distanceTo(p)/(2*R));
+    mid.normalize().multiplyScalar(R*lift*1.10);
+    var pts=new THREE.QuadraticBezierCurve3(hub.clone(),mid,p.clone()).getPoints(90), vv=[], tt=[];
+    for(var q=0;q<pts.length;q++){vv.push(pts[q].x,pts[q].y,pts[q].z);tt.push(q/(pts.length-1));}
+    var ag=new THREE.BufferGeometry();
+    ag.setAttribute('position',new THREE.Float32BufferAttribute(vv,3));
+    ag.setAttribute('aT',new THREE.Float32BufferAttribute(tt,1));
+    world.add(new THREE.Line(ag,new THREE.ShaderMaterial({uniforms:arcU,transparent:true,depthWrite:false,
+      vertexShader:['attribute float aT;varying float vT;varying float vF;',
+        'void main(){vT=aT;vec4 mv=modelViewMatrix*vec4(position,1.0);vF=clamp((mv.z+6.0)/16.0,0.0,1.0);',
+        'gl_Position=projectionMatrix*mv;}'].join('\n'),
+      fragmentShader:['uniform float uTime;varying float vT;varying float vF;',
+        'void main(){float h=fract(uTime*0.22);float d=vT-h;d=d-floor(d+0.5);float pu=exp(-d*d*260.0);',
+        'vec3 base=vec3(0.24,0.62,0.44);vec3 hot=vec3(1.0,0.82,0.36);',
+        'gl_FragColor=vec4(mix(base,hot,pu),(0.75+pu*0.25)*(0.3+0.7*vF));}'].join('\n')})));
+  });
+  var pins=SITES.map(function(s){
+    var el=document.createElement('div');
+    el.className='pin'+(s.hq?' hq':'');
+    el.innerHTML='<i></i><span>'+s.n+'</span> <small>'+(s.hq?'HQ':s.c)+'</small>';
+    stage.appendChild(el); return el;
+  });
+  var drag=false,lx=0,ly=0,rotY=-1.15,rotX=0.18;
+  cv.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(e.pointerId);});
+  cv.addEventListener('pointerup',function(){drag=false;});
+  cv.addEventListener('pointercancel',function(){drag=false;});
+  cv.addEventListener('pointermove',function(e){if(!drag)return;rotY+=(e.clientX-lx)*0.006;rotX=clamp(rotX+(e.clientY-ly)*0.004,-0.75,0.75);lx=e.clientX;ly=e.clientY;});
+  var fs=function(){ fit(r,cam,stage); }; resizers.push(fs); fs();
+  var v3=new THREE.Vector3();
+  register(cv,function(t){
+    if(!RM){ arcU.uTime.value=t; if(!drag) rotY+=0.0012; }
+    world.rotation.y=rotY; world.rotation.x=rotX;
+    r.render(sc,cam);
+    var w=stage.clientWidth,h=stage.clientHeight;
+    for(var i=0;i<SITES.length;i++){
+      v3.copy(SITES[i].v).applyMatrix4(world.matrixWorld);
+      var front=v3.clone().normalize().dot(cam.position.clone().normalize())>-0.05;
+      var depth=v3.clone().sub(cam.position).length();
+      v3.project(cam);
+      pins[i].style.left=((v3.x*0.5+0.5)*w)+'px';
+      pins[i].style.top=((-v3.y*0.5+0.5)*h + (SITES[i].dy||0))+'px';
+      pins[i].style.opacity=front?'1':'0';
+      pins[i].style.zIndex=String(Math.round(1000-depth));
+    }
+  });
+}
+
+/* ═════════ 5. SYNTHETIC TRACE ═════════ */
+function traceLab(){
+  var cv=document.getElementById('traceCanvas'); if(!cv) return;
+  var ctx=cv.getContext('2d');
+  var fEl=document.getElementById('freq'), sEl=document.getElementById('sep');
+  var fOut=document.getElementById('freqVal'), sOut=document.getElementById('sepVal'), note=document.getElementById('resNote');
+  var DT=0.001, NS=700;
+  function refl(sep){var a=new Float32Array(NS);a[120]=0.42;a[240]=-0.30;a[380]=0.55;a[380+Math.round(sep)]=-0.55;a[560]=0.26;a[620]=-0.18;return a;}
+  function ricker(f){var hf=Math.ceil(1.6/(f*DT)),w=new Float32Array(hf*2+1);
+    for(var i=-hf;i<=hf;i++){var x=Math.PI*f*i*DT,x2=x*x;w[i+hf]=(1-2*x2)*Math.exp(-x2);} return {w:w,half:hf};}
+  function conv(rf,wl){var o=new Float32Array(NS);
+    for(var i=0;i<NS;i++){ if(rf[i]===0) continue;
+      for(var j=-wl.half;j<=wl.half;j++){var k=i+j;if(k<0||k>=NS)continue;o[k]+=rf[i]*wl.w[j+wl.half];}} return o;}
+  function draw(){
+    var f=+fEl.value, sep=+sEl.value; fOut.textContent=f; sOut.textContent=sep;
+    var tune=500/f;
+    note.textContent='Tuning thickness at '+f+' Hz is about '+tune.toFixed(0)+' ms. '+
+      (sep<tune ? 'The pair is thinner than that — the two reflectors interfere and the section shows one event.'
+                : 'The pair is thicker than that — both reflectors resolve as separate events.');
+    var dpr=Math.min(window.devicePixelRatio||1,2), w=cv.clientWidth, h=cv.clientHeight;
+    if(!w||!h) return;
+    cv.width=Math.round(w*dpr); cv.height=Math.round(h*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,w,h);
+    var pl=52,pr=14,pt=18,pb=18, pw=w-pl-pr, ph=h-pt-pb;
+    ctx.strokeStyle='#E8EFEA'; ctx.lineWidth=1;
+    ctx.font='9px "IBM Plex Mono", monospace'; ctx.fillStyle='#8B9B92'; ctx.textBaseline='middle';
+    for(var ms=0;ms<=700;ms+=100){var y=pt+(ms/700)*ph;
+      ctx.beginPath();ctx.moveTo(pl,y);ctx.lineTo(w-pr,y);ctx.stroke(); ctx.fillText(ms+' ms',6,y);}
+    var wl=ricker(f), base=conv(refl(sep),wl), peak=0.0001;
+    for(var i=0;i<NS;i++) peak=Math.max(peak,Math.abs(base[i]));
+    var NT=11, slot=pw/NT;
+    for(var tr=0;tr<NT;tr++){
+      var cx=pl+slot*(tr+0.5), amp=slot*0.92, jit=0.94+0.12*Math.sin(tr*2.1);
+      ctx.strokeStyle='#EDF2EE'; ctx.beginPath(); ctx.moveTo(cx,pt); ctx.lineTo(cx,pt+ph); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx,pt);
+      for(var s=0;s<NS;s++){var v=base[s]/peak*jit; ctx.lineTo(cx+Math.max(0,v)*amp, pt+(s/NS)*ph);}
+      ctx.lineTo(cx,pt+ph); ctx.closePath(); ctx.fillStyle='rgba(15,122,74,.26)'; ctx.fill();
+      ctx.beginPath();
+      for(var s2=0;s2<NS;s2++){var v2=base[s2]/peak*jit,y3=pt+(s2/NS)*ph,x3=cx+v2*amp; if(s2===0)ctx.moveTo(x3,y3);else ctx.lineTo(x3,y3);}
+      ctx.strokeStyle = tr===5 ? '#0F7A4A' : 'rgba(34,53,43,.55)';
+      ctx.lineWidth = tr===5 ? 1.6 : 1; ctx.stroke();
+    }
+    var yA=pt+(380/NS)*ph, yB=pt+((380+sep)/NS)*ph;
+    ctx.strokeStyle='#B9601F'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+    ctx.beginPath();ctx.moveTo(pl,yA);ctx.lineTo(w-pr,yA);ctx.moveTo(pl,yB);ctx.lineTo(w-pr,yB);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle='#B9601F'; ctx.fillText('reflector pair', pl+6, yA-10);
+  }
+  fEl.addEventListener('input',draw); sEl.addEventListener('input',draw);
+  resizers.push(draw);
+  draw();
+}
+
+/* ═════════ 6. enquiry form ═════════ */
+function formInit(){
+  var f=document.getElementById('enq'), note=document.getElementById('fnote'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nm=document.getElementById('nm'), em=document.getElementById('em');
+    if(!nm.value.trim()){note.className='form-note';note.textContent='Add a name so we know who to reply to.';nm.focus();return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){note.className='form-note';note.textContent='That email address does not look complete — check it and send again.';em.focus();return;}
+    note.className='sent'; note.textContent='Validated. Wire this form to info@ag-services.org before the site goes live.';
+  });
+}
+
+
+/* ═════════ motion engine (spring-ish reveals, staggered) ═════════ */
+var MOTION_SEL = 'h2,.lede,.card,.prog article,.row,.stat,.geo-grid > div,.person,.gal figure,.mgal figure,' +
+                 '.canvas-card,.media-frame,.badges,.scene,form,.zero > div,.hero-strip-in > div';
+var motionIO = null;
+function motionKind(el){
+  if(el.classList.contains('card')||el.classList.contains('person')||el.tagName==='FIGURE'||el.classList.contains('stat')) return 'scale';
+  if(el.classList.contains('scene')||el.classList.contains('media-frame')||el.classList.contains('canvas-card')) return 'mask';
+  if(el.classList.contains('row')) return 'left';
+  return 'up';
+}
+function primeMotion(){
+  if(RM || window.__agsReactMotion) return;
+  if(!motionIO && 'IntersectionObserver' in window){
+    motionIO = new IntersectionObserver(function(es){
+      for(var i=0;i<es.length;i++){
+        if(es[i].isIntersecting){ es[i].target.classList.add('in'); motionIO.unobserve(es[i].target); }
+      }
+    }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
+  }
+  var page = document.querySelector('.page:not([hidden])');
+  if(!page) return;
+  var els = page.querySelectorAll(MOTION_SEL), vh = window.innerHeight, n = 0;
+  for(var i=0;i<els.length;i++){
+    var el = els[i];
+    if(el.dataset.motionSet) continue;
+    el.dataset.motionSet = '1';
+    var r = el.getBoundingClientRect();
+    el.setAttribute('data-motion', motionKind(el));
+    if(r.top < vh * 0.94){ el.classList.add('now'); }
+    else {
+      el.style.transitionDelay = ((n++ % 4) * 70) + 'ms';
+      if(motionIO) motionIO.observe(el); else el.classList.add('in');
+    }
+  }
+}
+
+function motionSweep(vh){
+  if(RM || window.__agsReactMotion) return;
+  var page = document.querySelector('.page:not([hidden])');
+  if(!page) return;
+  var els = page.querySelectorAll('[data-motion]:not(.in):not(.now)');
+  for(var i=0;i<els.length;i++){
+    var r = els[i].getBoundingClientRect();
+    if(r.top < vh * 0.95) els[i].classList.add('in');
+  }
+}
+
+/* ═════════ scroll focus — the focused block reads, neighbours recede ═════════ */
+var focusItems = [];
+function cacheFocus(){
+  var page = document.querySelector('.page:not([hidden])');
+  focusItems = page ? [].slice.call(page.querySelectorAll('.rows .row, .prin > div')) : [];
+  for(var i=0;i<focusItems.length;i++) focusItems[i].classList.add('focus-item');
+}
+function updateFocus(vh){
+  if(RM || !focusItems.length) return;
+  var fy = vh * 0.46;
+  for(var i=0;i<focusItems.length;i++){
+    var el = focusItems[i], r = el.getBoundingClientRect();
+    if(r.bottom < -80 || r.top > vh + 80) continue;
+    var d = clamp(Math.abs((r.top + r.height/2) - fy) / (vh * 0.42), 0, 1);
+    el.style.opacity = (1 - d * 0.74).toFixed(3);
+    el.style.filter = d > 0.18 ? 'blur(' + (d * 2.6).toFixed(2) + 'px)' : 'none';
+    el.style.transform = 'scale(' + (1 - d * 0.016).toFixed(4) + ')';
+    el.classList.toggle('lead', d < 0.22);
+  }
+}
+
+/* ═════════ background video manager ═════════ */
+function syncVideos(){
+  var vids = document.querySelectorAll('video');
+  for(var i=0;i<vids.length;i++){
+    var v = vids[i];
+    var onPage = v.closest('.page') ? !v.closest('.page').hasAttribute('hidden') : true;
+    if(RM || !onPage){ try{ v.pause(); }catch(e){} }
+    else if(v.autoplay){ var pr = v.play(); if(pr && pr.catch) pr.catch(function(){}); }
+  }
+}
+function videoViewportSync(){
+  var vids = document.querySelectorAll('.page:not([hidden]) video');
+  var vh = window.innerHeight;
+  for(var i=0;i<vids.length;i++){
+    var v = vids[i], r = v.getBoundingClientRect();
+    var vis = r.bottom > -60 && r.top < vh + 60;
+    if(!vis){ if(!v.paused){ try{ v.pause(); }catch(e){} } }
+    else if(v.paused && !RM && v.dataset.manual !== '1'){ var pr = v.play(); if(pr && pr.catch) pr.catch(function(){}); }
+  }
+}
+
+
+/* ═════════ pinned hero slider + countries rail ═════════ */
+var HSLIDES = [
+  ['Muscat, Oman · Established 2011 · ISO 9001:2015',
+   'We read the ground<br><em>layer by layer.</em>',
+   'Africa Geophysical Services designs, acquires and processes land seismic surveys across desert, dense forest, mountain, populated ground and shallow water — from Muscat to the Great Lakes.'],
+  ['2D · 3D · 3D-3C · 4D · 4D-3C',
+   'Every dimension the<br><em>objective needs.</em>',
+   'Survey design, field acquisition and processing — from two-dimensional reconnaissance lines through to repeat 4D monitor surveys with three-component recording.'],
+  ['Sercel 428 · ARIES · Nodal · Vibroseis',
+   'Equipment we own.<br><em>Crews we train.</em>',
+   'Vibrators, recording channels, drilling rigs, RTK survey units and ProMAX systems, owned outright since 2011 — so the schedule answers to our maintenance programme, not a rental queue.'],
+  ['Transition zone · shallow water',
+   'From the shoreline<br><em>into the water.</em>',
+   'Recording barges, cable boats and shore crews carry the spread into water too shallow for a marine vessel — the ground neither a land nor a marine contractor covers well.'],
+  ['QHSE · ISO 9001:2015',
+   'Zero injuries.<br><em>Zero damage.</em>',
+   'Health, safety and environmental accountability is everyone&apos;s responsibility. Zero harm is the only target we set, and the only one we accept.']
+];
+var COUNTRIES = [
+  ['Muscat, Oman','Headquarters · operational base'],
+  ['Tanzania','Operational base · logistics'],
+  ['Egypt','Operational base · logistics'],
+  ['Uganda','Registered office'],
+  ['Kurdistan','Registered office'],
+  ['Türkiye','Registered office'],
+  ['Dubai, UAE','Registered office'],
+  ['United Kingdom','IMC GSL · Sheffield']
+];
+var heroPin, hSlides, hDots, cTrack, cItems, hsCopy, hsEyebrow, hsTitle, hsLede, hIdx = -1, cIdx = -1;
+function heroSliderInit(){
+  heroPin = document.getElementById('heroPin'); if(!heroPin) return;
+  hSlides = [].slice.call(heroPin.querySelectorAll('.hslide'));
+  hsCopy = document.getElementById('hsCopy');
+  hsEyebrow = document.getElementById('hsEyebrow');
+  hsTitle = document.getElementById('hsTitle');
+  hsLede = document.getElementById('hsLede');
+  var dots = document.getElementById('hdots');
+  if(dots && !dots.childElementCount){
+    for(var i=0;i<HSLIDES.length;i++){
+      var d = document.createElement('span'); d.className = 'hdot'; d.innerHTML = '<i></i>';
+      dots.appendChild(d);
+    }
+  }
+  hDots = dots ? [].slice.call(dots.children) : [];
+  cTrack = document.getElementById('ctrack');
+  if(cTrack && !cTrack.childElementCount){
+    for(var c=0;c<COUNTRIES.length;c++){
+      var el = document.createElement('div'); el.className = 'citem';
+      el.innerHTML = '<em>' + ('0'+(c+1)) + '</em><b>' + COUNTRIES[c][0] + '</b><span>' + COUNTRIES[c][1] + '</span>';
+      cTrack.appendChild(el);
+    }
+  }
+  cItems = cTrack ? [].slice.call(cTrack.children) : [];
+  for(var v=0;v<hSlides.length;v++){ var vd = hSlides[v].querySelector('video'); if(vd) vd.dataset.manual = '1'; }
+  setHeroSlide(0); setCountry(0);
+}
+function setHeroSlide(i){
+  if(i === hIdx || !hSlides) return;
+  hIdx = i;
+  for(var k=0;k<hSlides.length;k++){
+    var on = (k === i);
+    hSlides[k].classList.toggle('on', on);
+    var vd = hSlides[k].querySelector('video');
+    if(vd){
+      if(on && !RM){ var pr = vd.play(); if(pr && pr.catch) pr.catch(function(){}); }
+      else { try{ vd.pause(); }catch(e){} }
+    }
+  }
+  if(hsEyebrow){ hsEyebrow.innerHTML = HSLIDES[i][0]; hsTitle.innerHTML = HSLIDES[i][1]; hsLede.innerHTML = HSLIDES[i][2]; }
+  if(hsCopy && !RM){ hsCopy.classList.remove('swap'); void hsCopy.offsetWidth; hsCopy.classList.add('swap'); }
+}
+function setCountry(i){
+  if(i === cIdx || !cItems || !cItems.length) return;
+  cIdx = i;
+  for(var k=0;k<cItems.length;k++) cItems[k].classList.toggle('on', k === i);
+  if(cTrack) cTrack.style.transform = 'translateX(' + (-cItems[i].offsetLeft) + 'px)';
+}
+function heroSliderScroll(vh){
+  if(!heroPin || heroPin.offsetParent === null) return;
+  var r = heroPin.getBoundingClientRect();
+  var p = clamp((-r.top) / Math.max(1, r.height - vh), 0, 1);
+  var n = HSLIDES.length;
+  setHeroSlide(Math.min(n - 1, Math.floor(p * n * 0.9999)));
+  setCountry(Math.min(COUNTRIES.length - 1, Math.floor(p * COUNTRIES.length * 0.9999)));
+  for(var d=0;d<hDots.length;d++){
+    var fill = clamp(p * n - d, 0, 1);
+    hDots[d].firstChild.style.width = (fill * 100) + '%';
+  }
+  if(nav) nav.classList.toggle('over', r.bottom > 90);
+}
+
+/* ═════════ programme timeline (scroll-driven) ═════════ */
+var TL_LABELS = ['Phase 01 — Mobilisation','Phase 02 — Permitting & community','Phase 03 — Survey & line clearing',
+  'Phase 04 — Drilling & near surface','Phase 05 — Layout & recording','Phase 06 — In-field processing & QC',
+  'Phase 07 — Reinstatement & final processing'];
+var tlEl, tlSteps, tlFrames, tlProg, tlNum, tlBadge, tlIdx = -1, tlP = 0;
+function timelineInit(){
+  tlEl = document.getElementById('tl'); if(!tlEl) return;
+  tlSteps = [].slice.call(tlEl.querySelectorAll('.tl-step'));
+  tlFrames = [].slice.call(tlEl.querySelectorAll('.tl-frame'));
+  tlProg = document.getElementById('tlProg');
+  tlNum = document.getElementById('tlNum');
+  tlBadge = document.getElementById('tlBadge');
+  for(var i=0;i<tlFrames.length;i++){ var v = tlFrames[i].querySelector('video'); if(v) v.dataset.manual = '1'; }
+  setTlIndex(0);
+}
+function setTlIndex(i){
+  if(i === tlIdx || !tlSteps) return;
+  tlIdx = i;
+  for(var k=0;k<tlSteps.length;k++) tlSteps[k].classList.toggle('on', k === i);
+  for(var f=0;f<tlFrames.length;f++){
+    var on = (+tlFrames[f].dataset.i === i);
+    tlFrames[f].classList.toggle('on', on);
+    var v = tlFrames[f].querySelector('video');
+    if(v){
+      if(on && !RM){ try{ v.currentTime = 0; }catch(e){} var pr = v.play(); if(pr && pr.catch) pr.catch(function(){}); }
+      else { try{ v.pause(); }catch(e){} }
+    }
+  }
+  if(tlNum) tlNum.textContent = ('0' + (i + 1));
+  if(tlBadge) tlBadge.textContent = TL_LABELS[i];
+}
+function timelineScroll(vh){
+  if(!tlEl || tlEl.offsetParent === null) return;
+  var r = tlEl.getBoundingClientRect();
+  tlP = clamp((-r.top) / (r.height - vh), 0, 1);
+  var n = tlSteps.length;
+  setTlIndex(Math.min(n - 1, Math.floor(tlP * n * 0.999)));
+  if(tlProg){
+    var host = document.getElementById('tlSteps');
+    tlProg.style.height = (tlP * (host ? host.offsetHeight : 0)) + 'px';
+  }
+}
+
+/* ═════════ shared scene helpers ═════════ */
+function mkRenderer(cv){
+  var r = new THREE.WebGLRenderer({canvas:cv, antialias:true, alpha:true});
+  r.setPixelRatio(DPR); r.setClearColor(0x000000, 0); return r;
+}
+function fitSelf(r, cam, cv){
+  var fn = function(){ var w = cv.clientWidth||1, h = cv.clientHeight||1; r.setSize(w,h,false); cam.aspect = w/h; cam.updateProjectionMatrix(); };
+  resizers.push(fn); fn(); return fn;
+}
+var NOISE_GLSL = [
+ 'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+ 'float vnoise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+ ' return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);}',
+ 'float fbm(vec2 p){float v=0.0;float a=0.5;for(int i=0;i<5;i++){v+=a*vnoise(p);p*=2.02;a*=0.5;}return v;}'
+].join('\n');
+
+/* ═════════ SCENE — core column (About) ═════════ */
+function coreScene(){
+  var cv = document.getElementById('coreCanvas'); if(!cv || !HAS3D) return;
+  var r = mkRenderer(cv), sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(34,1,0.1,200);
+  cam.position.set(0,5.5,46);
+  var grp = new THREE.Group(); sc.add(grp);
+  var LAYERS = 11, H = 2.0, COLS = [0x0B5C3A,0x12935A,0x1E6B49,0x2FC47C,0x0F7A4A,0x7FB79A,0x0B5C3A,0x2FC47C,0x12935A,0x1E6B49,0x0F7A4A];
+  var rings = [];
+  for(var i=0;i<LAYERS;i++){
+    var rad = 4.2 + Math.sin(i*1.3)*0.35;
+    var geo = new THREE.CylinderGeometry(rad, rad, H*0.94, 64, 1, true);
+    var mat = new THREE.MeshBasicMaterial({color:COLS[i%COLS.length], transparent:true, opacity:0.30, side:THREE.DoubleSide});
+    var mesh = new THREE.Mesh(geo, mat);
+    mesh.position.y = (LAYERS/2 - i) * H - H/2;
+    grp.add(mesh);
+    var line = new THREE.LineSegments(new THREE.EdgesGeometry(geo),
+      new THREE.LineBasicMaterial({color:0x8FF2C0, transparent:true, opacity:0.30}));
+    line.position.copy(mesh.position); grp.add(line);
+    rings.push({mat:mat, y:mesh.position.y});
+  }
+  var sp = [];
+  for(var a=0;a<=90;a++){ var th = a/90*Math.PI*2; sp.push(Math.cos(th)*5.4, 0, Math.sin(th)*5.4); }
+  var scanG = new THREE.BufferGeometry();
+  scanG.setAttribute('position', new THREE.Float32BufferAttribute(sp,3));
+  var scanM = new THREE.LineBasicMaterial({color:0xFFE6B0, transparent:true, opacity:0.85});
+  var scan = new THREE.Line(scanG, scanM); sc.add(scan);
+  fitSelf(r, cam, cv);
+  register(cv, function(t){
+    grp.rotation.y = RM ? 0.5 : t*0.22;
+    var top = LAYERS*H/2, y = RM ? 0 : Math.sin(t*0.42)*top;
+    scan.position.y = y;
+    for(var i=0;i<rings.length;i++){
+      var d = rings[i].y - y;
+      rings[i].mat.opacity = 0.16 + 0.58*Math.exp(-d*d*0.22);
+    }
+    cam.position.set(Math.sin(RM?0.3:t*0.09)*6, 5.5, 46);
+    cam.lookAt(0,0,0);
+    r.render(sc, cam);
+  });
+}
+
+/* ═════════ SCENE — ray paths (Services) ═════════ */
+function rayScene(){
+  var cv = document.getElementById('rayCanvas'); if(!cv || !HAS3D) return;
+  var r = mkRenderer(cv), sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(38,1,0.1,400);
+  var W = 60, DEPTH = 22, NR = 22, SX = -W/2 + 4;
+  var refl = [];
+  for(var x=-W/2;x<=W/2;x+=3){ refl.push(x,-DEPTH,-18, x,-DEPTH,18); }
+  for(var z=-18;z<=18;z+=3){ refl.push(-W/2,-DEPTH,z, W/2,-DEPTH,z); }
+  var rg = new THREE.BufferGeometry(); rg.setAttribute('position', new THREE.Float32BufferAttribute(refl,3));
+  sc.add(new THREE.LineSegments(rg, new THREE.LineBasicMaterial({color:0x1E6B49, transparent:true, opacity:0.9})));
+  var surf = [];
+  for(var sx=-W/2;sx<=W/2;sx+=3){ surf.push(sx,0,-18, sx,0,18); }
+  for(var sz=-18;sz<=18;sz+=3){ surf.push(-W/2,0,sz, W/2,0,sz); }
+  var sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.Float32BufferAttribute(surf,3));
+  sc.add(new THREE.LineSegments(sg, new THREE.LineBasicMaterial({color:0x2E6B52, transparent:true, opacity:0.4})));
+  var U = {uTime:{value:0}};
+  var pos = [], tt = [], mp = [], mpt = [];
+  for(var i=0;i<NR;i++){
+    var rx = SX + 4 + (i/(NR-1))*(W-10), mx = (SX + rx)/2;
+    pos.push(SX,0,0, mx,-DEPTH,0); tt.push(0, 0.5);
+    pos.push(mx,-DEPTH,0, rx,0,0); tt.push(0.5, 1);
+    mp.push(mx, -DEPTH+0.3, 0); mpt.push(i/(NR-1));
+  }
+  var ag = new THREE.BufferGeometry();
+  ag.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+  ag.setAttribute('aT', new THREE.Float32BufferAttribute(tt,1));
+  sc.add(new THREE.LineSegments(ag, new THREE.ShaderMaterial({uniforms:U, transparent:true, depthWrite:false,
+    vertexShader:'attribute float aT;varying float vT;void main(){vT=aT;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+    fragmentShader:['uniform float uTime;varying float vT;',
+      'void main(){float h=fract(uTime*0.30);float d=vT-h;d=d-floor(d+0.5);float pu=exp(-d*d*180.0);',
+      'gl_FragColor=vec4(mix(vec3(0.17,0.42,0.31),vec3(0.56,0.95,0.75),pu),0.5+pu*0.5);}'].join('\n')})));
+  var mg = new THREE.BufferGeometry();
+  mg.setAttribute('position', new THREE.Float32BufferAttribute(mp,3));
+  mg.setAttribute('aI', new THREE.Float32BufferAttribute(mpt,1));
+  sc.add(new THREE.Points(mg, new THREE.ShaderMaterial({uniforms:{uPR:{value:DPR}, uTime:U.uTime}, transparent:true, depthWrite:false,
+    vertexShader:['attribute float aI;uniform float uPR,uTime;varying float vA;',
+      'void main(){vA=0.45+0.55*sin(uTime*2.0-aI*6.0);vec4 mv=modelViewMatrix*vec4(position,1.0);',
+      'gl_PointSize=5.0*uPR*(20.0/max(1.0,-mv.z));gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['varying float vA;void main(){vec2 d=gl_PointCoord-vec2(0.5);if(max(abs(d.x),abs(d.y))>0.42)discard;',
+      'gl_FragColor=vec4(1.0,0.90,0.45,0.32+vA*0.58);}'].join('\n')})));
+  var src = new THREE.Mesh(new THREE.SphereGeometry(0.9,16,16), new THREE.MeshBasicMaterial({color:0xFFD489}));
+  src.position.set(SX, 0.4, 0); sc.add(src);
+  fitSelf(r, cam, cv);
+  register(cv, function(t){
+    if(!RM) U.uTime.value = t;
+    var ang = RM ? -0.55 : Math.sin(t*0.11)*0.30 - 0.55;
+    cam.position.set(Math.sin(ang)*80, 30, Math.cos(ang)*80);
+    cam.lookAt(-1,-11,0);
+    src.scale.setScalar(1 + 0.25*Math.sin(t*3.0));
+    r.render(sc, cam);
+  });
+}
+
+/* ═════════ SCENE — morphing terrain (Operations) ═════════ */
+function terrainScene(){
+  var cv = document.getElementById('terrainCanvas'); if(!cv || !HAS3D) return;
+  var r = mkRenderer(cv), sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(36,1,0.1,500);
+  var N = 150, S = 90, pos = new Float32Array(N*N*3), k = 0;
+  for(var i=0;i<N;i++) for(var j=0;j<N;j++){
+    pos[k*3] = (i/(N-1)-0.5)*S; pos[k*3+1] = 0; pos[k*3+2] = (j/(N-1)-0.5)*S; k++;
+  }
+  var g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  var U = {uPR:{value:DPR}, uMorph:{value:0}};
+  var HEIGHT = [
+    'float hDune(vec2 p){ return 3.6*sin(p.x*0.16)+2.2*sin(p.y*0.11+1.7)+2.8*fbm(p*0.09); }',
+    'float hForest(vec2 p){ float ridge=4.5*(1.0-abs(sin(p.x*0.06+p.y*0.02)));return ridge+3.0*fbm(p*0.22)+1.2*fbm(p*0.7); }',
+    'float hFlat(vec2 p){ return 0.5*fbm(p*0.12)+0.35*floor(mod(p.y*0.10,3.0)); }',
+    'float hShore(vec2 p){ float land=smoothstep(-6.0,14.0,p.x); return land*(2.2+2.6*fbm(p*0.16))-0.6*(1.0-land); }',
+    'float terr(vec2 p,float m){ float a,b; float f=fract(m); float i=floor(mod(m,4.0));',
+    ' float h0=hDune(p),h1=hForest(p),h2=hFlat(p),h3=hShore(p);',
+    ' if(i<0.5){a=h0;b=h1;} else if(i<1.5){a=h1;b=h2;} else if(i<2.5){a=h2;b=h3;} else {a=h3;b=h0;}',
+    ' return mix(a,b,smoothstep(0.0,1.0,f)); }'
+  ].join('\n');
+  sc.add(new THREE.Points(g, new THREE.ShaderMaterial({uniforms:U, transparent:true, depthWrite:false,
+    vertexShader:['uniform float uPR,uMorph;varying float vH;varying float vD;', NOISE_GLSL, HEIGHT,
+      'void main(){vec3 p=position;float h=terr(p.xz,uMorph);p.y=h;vH=h;',
+      'vec4 mv=modelViewMatrix*vec4(p,1.0);vD=clamp(1.0-(-mv.z)/210.0,0.0,1.0);',
+      'gl_PointSize=1.9*uPR*(70.0/max(1.0,-mv.z));gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['varying float vH;varying float vD;',
+      'void main(){vec2 d=gl_PointCoord-vec2(0.5);if(length(d)>0.5)discard;',
+      'float t=clamp((vH+2.0)/9.0,0.0,1.0);',
+      'gl_FragColor=vec4(mix(vec3(0.10,0.34,0.24),vec3(0.45,0.92,0.68),t),0.28+0.62*vD);}'].join('\n')})));
+  var LN = 240, lp = new Float32Array(LN*3);
+  for(var q=0;q<LN;q++){ lp[q*3] = (q/(LN-1)-0.5)*S; lp[q*3+1] = 0; lp[q*3+2] = Math.sin(q/LN*3.0)*6.0; }
+  var lg = new THREE.BufferGeometry(); lg.setAttribute('position', new THREE.BufferAttribute(lp,3));
+  sc.add(new THREE.Line(lg, new THREE.ShaderMaterial({uniforms:U, transparent:true, depthWrite:false,
+    vertexShader:['uniform float uMorph;', NOISE_GLSL, HEIGHT,
+      'void main(){vec3 p=position;p.y=terr(p.xz,uMorph)+0.55;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.0);}'].join('\n'),
+    fragmentShader:'void main(){gl_FragColor=vec4(1.0,0.90,0.48,0.9);}'})));
+  fitSelf(r, cam, cv);
+  register(cv, function(t){
+    U.uMorph.value = RM ? 0.5 : t*0.13;
+    var ang = RM ? 0.4 : t*0.05;
+    cam.position.set(Math.sin(ang)*92, 46, Math.cos(ang)*92);
+    cam.lookAt(0, 2, 0);
+    r.render(sc, cam);
+  });
+}
+
+/* ═════════ SCENE — zero (QHSE) ═════════ */
+function zeroScene(){
+  var cv = document.getElementById('zeroCanvas'); if(!cv || !HAS3D) return;
+  var r = mkRenderer(cv), sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(36,1,0.1,200);
+  cam.position.set(0,0,52);
+  var N = 4200, pos = new Float32Array(N*3), tgt = new Float32Array(N*3), dly = new Float32Array(N);
+  for(var i=0;i<N;i++){
+    var u = Math.random()*Math.PI*2, v = Math.random()*Math.PI*2, R0 = 11.5, r0 = 1.5;
+    tgt[i*3]   = (R0 + r0*Math.cos(v))*Math.cos(u)*0.70;
+    tgt[i*3+1] = (R0 + r0*Math.cos(v))*Math.sin(u);
+    tgt[i*3+2] = r0*Math.sin(v);
+    var a = Math.random()*Math.PI*2, b = Math.acos(2*Math.random()-1), rr = 17 + Math.random()*13;
+    pos[i*3]   = rr*Math.sin(b)*Math.cos(a);
+    pos[i*3+1] = rr*Math.sin(b)*Math.sin(a);
+    pos[i*3+2] = rr*Math.cos(b);
+    dly[i] = Math.random();
+  }
+  var g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  g.setAttribute('aT', new THREE.BufferAttribute(tgt,3));
+  g.setAttribute('aD', new THREE.BufferAttribute(dly,1));
+  var U = {uPR:{value:DPR}, uPhase:{value:0}, uTime:{value:0}};
+  sc.add(new THREE.Points(g, new THREE.ShaderMaterial({uniforms:U, transparent:true, depthWrite:false,
+    vertexShader:['attribute vec3 aT;attribute float aD;uniform float uPR,uPhase,uTime;varying float vA;',
+      'void main(){float k=clamp((uPhase-aD*0.35)/0.65,0.0,1.0);k=k*k*(3.0-2.0*k);',
+      'vec3 p=mix(position,aT,k);',
+      'p.x+=sin(uTime*1.1+aD*8.0)*(1.0-k)*1.4;p.y+=cos(uTime*1.3+aD*7.0)*(1.0-k)*1.4;',
+      'vA=k;vec4 mv=modelViewMatrix*vec4(p,1.0);',
+      'gl_PointSize=(1.7+k*2.0)*uPR*(40.0/max(1.0,-mv.z));gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['varying float vA;void main(){vec2 d=gl_PointCoord-vec2(0.5);float m=1.0-smoothstep(0.24,0.5,length(d));',
+      'if(m<=0.003)discard;gl_FragColor=vec4(mix(vec3(0.28,0.56,0.42),vec3(0.62,1.0,0.80),vA),(0.34+vA*0.64)*m);}'].join('\n')})));
+  fitSelf(r, cam, cv);
+  register(cv, function(t){
+    U.uTime.value = t;
+    var cyc = (t*0.085 + 0.55) % 1;
+    U.uPhase.value = RM ? 1 : clamp(cyc < 0.93 ? cyc/0.15 : 1 - (cyc-0.93)/0.07, 0, 1);
+    sc.rotation.y = RM ? 0 : Math.sin(t*0.16)*0.28;
+    sc.rotation.x = RM ? 0 : Math.sin(t*0.11)*0.12;
+    r.render(sc, cam);
+  });
+}
+
+/* ═════════ SCENE — career routes (Careers) ═════════ */
+function pathScene(){
+  var cv = document.getElementById('pathCanvas'); if(!cv || !HAS3D) return;
+  var host = cv.parentElement;
+  var r = mkRenderer(cv), sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(38,1,0.1,200);
+  cam.position.set(0,4,56);
+  var NODES = [
+    {n:'Line crew',  p:[-13,-7,0]}, {n:'Layout',   p:[-7,4,5]},
+    {n:'Driller',    p:[-5,-9,-6]}, {n:'Surveyor', p:[2,7,3]},
+    {n:'Observer',   p:[3,-2,-4]},  {n:'Supervisor', p:[10,5,-2]},
+    {n:'Processor',  p:[11,-7,4]}
+  ];
+  var EDGES = [[0,1],[0,2],[1,3],[1,4],[2,5],[3,5],[4,5],[4,6],[3,6],[0,4]];
+  var grp = new THREE.Group(); sc.add(grp);
+  var lp = [], lt = [];
+  for(var e=0;e<EDGES.length;e++){
+    var a = NODES[EDGES[e][0]].p, b = NODES[EDGES[e][1]].p, seg = 20;
+    for(var s2=0;s2<seg;s2++){
+      var t0 = s2/seg, t1 = (s2+1)/seg;
+      lp.push(a[0]+(b[0]-a[0])*t0, a[1]+(b[1]-a[1])*t0, a[2]+(b[2]-a[2])*t0,
+              a[0]+(b[0]-a[0])*t1, a[1]+(b[1]-a[1])*t1, a[2]+(b[2]-a[2])*t1);
+      lt.push(t0 + e*0.13, t1 + e*0.13);
+    }
+  }
+  var lg = new THREE.BufferGeometry();
+  lg.setAttribute('position', new THREE.Float32BufferAttribute(lp,3));
+  lg.setAttribute('aT', new THREE.Float32BufferAttribute(lt,1));
+  var U = {uTime:{value:0}};
+  grp.add(new THREE.LineSegments(lg, new THREE.ShaderMaterial({uniforms:U, transparent:true, depthWrite:false,
+    vertexShader:'attribute float aT;varying float vT;void main(){vT=aT;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+    fragmentShader:['uniform float uTime;varying float vT;',
+      'void main(){float h=fract(uTime*0.18);float d=fract(vT)-h;d=d-floor(d+0.5);float pu=exp(-d*d*150.0);',
+      'gl_FragColor=vec4(mix(vec3(0.18,0.42,0.32),vec3(0.62,0.99,0.79),pu),0.42+pu*0.55);}'].join('\n')})));
+  var np = [];
+  for(var i=0;i<NODES.length;i++) np.push(NODES[i].p[0], NODES[i].p[1], NODES[i].p[2]);
+  var ng = new THREE.BufferGeometry(); ng.setAttribute('position', new THREE.Float32BufferAttribute(np,3));
+  grp.add(new THREE.Points(ng, new THREE.ShaderMaterial({uniforms:{uPR:{value:DPR}}, transparent:true, depthWrite:false,
+    vertexShader:['uniform float uPR;void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);',
+      'gl_PointSize=8.0*uPR*(34.0/max(1.0,-mv.z));gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['void main(){vec2 d=gl_PointCoord-vec2(0.5);float l=length(d);if(l>0.5)discard;',
+      'float ring=smoothstep(0.5,0.42,l)*(1.0-smoothstep(0.34,0.26,l));',
+      'gl_FragColor=vec4(vec3(1.0,0.90,0.48),0.22+ring*0.9);}'].join('\n')})));
+  var pins = NODES.map(function(nd){
+    var el = document.createElement('div');
+    el.className = 'pin';
+    el.innerHTML = '<span>' + nd.n + '</span>';
+    el.style.transform = 'translate(-50%,-50%)';
+    host.appendChild(el); return el;
+  });
+  fitSelf(r, cam, cv);
+  var v3 = new THREE.Vector3();
+  register(cv, function(t){
+    U.uTime.value = t;
+    grp.rotation.y = RM ? 0.3 : Math.sin(t*0.18)*0.34;
+    grp.rotation.x = RM ? 0 : Math.sin(t*0.13)*0.12;
+    r.render(sc, cam);
+    var w = host.clientWidth, h = host.clientHeight;
+    for(var i=0;i<NODES.length;i++){
+      v3.set(NODES[i].p[0], NODES[i].p[1], NODES[i].p[2]).applyMatrix4(grp.matrixWorld).project(cam);
+      pins[i].style.left = ((v3.x*0.5+0.5)*w) + 'px';
+      pins[i].style.top = ((-v3.y*0.5+0.5)*h - 17) + 'px';
+    }
+  });
+}
+
+/* ═════════ SCENE — RTK fix (Contact) ═════════ */
+function rtkScene(){
+  var cv = document.getElementById('rtkCanvas'); if(!cv || !HAS3D) return;
+  var r = mkRenderer(cv), sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(36,1,0.1,300);
+  var gl2 = [], S = 60;
+  for(var a=-S/2;a<=S/2;a+=4){ gl2.push(-S/2,0,a, S/2,0,a, a,0,-S/2, a,0,S/2); }
+  var gg = new THREE.BufferGeometry(); gg.setAttribute('position', new THREE.Float32BufferAttribute(gl2,3));
+  sc.add(new THREE.LineSegments(gg, new THREE.LineBasicMaterial({color:0x1E6B49, transparent:true, opacity:0.8})));
+  var rings = [];
+  for(var i=0;i<3;i++){
+    var rp = [];
+    for(var q=0;q<=90;q++){ var th = q/90*Math.PI*2; rp.push(Math.cos(th),0,Math.sin(th)); }
+    var rg2 = new THREE.BufferGeometry(); rg2.setAttribute('position', new THREE.Float32BufferAttribute(rp,3));
+    var m = new THREE.LineBasicMaterial({color:0x2FC47C, transparent:true, opacity:0.7});
+    var ln = new THREE.Line(rg2, m); ln.position.y = 0.05; sc.add(ln);
+    rings.push({l:ln, m:m, o:i/3});
+  }
+  var sats = [];
+  for(var s2=0;s2<4;s2++){
+    var mk = new THREE.Mesh(new THREE.SphereGeometry(0.55,10,10), new THREE.MeshBasicMaterial({color:0xFFD489}));
+    sc.add(mk); sats.push({m:mk, a:s2*Math.PI/2, rr:22+s2*3, h:16+s2*3});
+  }
+  var linkG = new THREE.BufferGeometry();
+  linkG.setAttribute('position', new THREE.BufferAttribute(new Float32Array(4*2*3),3));
+  var links = new THREE.LineSegments(linkG, new THREE.LineBasicMaterial({color:0x8FF2C0, transparent:true, opacity:0.35}));
+  sc.add(links);
+  var st = new THREE.Mesh(new THREE.ConeGeometry(0.8,2.6,12), new THREE.MeshBasicMaterial({color:0x2FC47C}));
+  st.position.y = 1.3; sc.add(st);
+  fitSelf(r, cam, cv);
+  register(cv, function(t){
+    for(var i=0;i<rings.length;i++){
+      var ph = ((t*0.36) + rings[i].o) % 1;
+      var s3 = 1 + ph*26;
+      rings[i].l.scale.set(s3,1,s3);
+      rings[i].m.opacity = 0.7*(1-ph);
+    }
+    var arr = links.geometry.attributes.position.array;
+    for(var k=0;k<sats.length;k++){
+      var A = sats[k].a + t*0.24*(k%2 ? 1 : -1);
+      var x = Math.cos(A)*sats[k].rr, z = Math.sin(A)*sats[k].rr, y = sats[k].h;
+      sats[k].m.position.set(x,y,z);
+      arr[k*6] = x; arr[k*6+1] = y; arr[k*6+2] = z; arr[k*6+3] = 0; arr[k*6+4] = 1.3; arr[k*6+5] = 0;
+    }
+    links.geometry.attributes.position.needsUpdate = true;
+    var ang = RM ? 0.5 : t*0.08;
+    cam.position.set(Math.sin(ang)*48, 27, Math.cos(ang)*48);
+    cam.lookAt(0,2,0);
+    r.render(sc, cam);
+  });
+}
+
+/* ═════════ SCENE — fold build (Projects timeline, phase 07) ═════════ */
+function foldScene(){
+  var cv = document.getElementById('foldCanvas'); if(!cv || !HAS3D) return;
+  var r = mkRenderer(cv), sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(40,1,0.1,400);
+  var NX=88, NZ=88, NL=8, SX=40, SZ=40, k=0, total=NX*NZ*NL;
+  var pos = new Float32Array(total*3), amp = new Float32Array(total), ord = new Float32Array(total);
+  for(var l=0;l<NL;l++) for(var i=0;i<NX;i++) for(var j=0;j<NZ;j++){
+    var x = (i/(NX-1)-0.5)*SX, z = (j/(NZ-1)-0.5)*SZ;
+    var fold = 2.8*Math.exp(-((x-1)*(x-1)+z*z)/240), fault = x > 5 ? -1.3 : 0;
+    pos[k*3] = x; pos[k*3+1] = -l*2.0 + fold*(1-l*0.05) + fault + Math.sin(z*0.16+l)*0.3; pos[k*3+2] = z;
+    amp[k] = Math.sin(l*1.7+0.5)*(0.55 + 0.45*Math.cos(x*0.12 + z*0.07));
+    ord[k] = l/NL*0.7 + (Math.sqrt(x*x+z*z)/(SX*0.7))*0.3;
+    k++;
+  }
+  var g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  g.setAttribute('aAmp', new THREE.BufferAttribute(amp,1));
+  g.setAttribute('aO', new THREE.BufferAttribute(ord,1));
+  var U = {uPR:{value:DPR}, uBuild:{value:0}};
+  sc.add(new THREE.Points(g, new THREE.ShaderMaterial({uniforms:U, transparent:true, depthWrite:false,
+    vertexShader:['attribute float aAmp;attribute float aO;uniform float uPR,uBuild;varying float vA;varying float vV;',
+      'void main(){vA=aAmp;vV=clamp((uBuild-aO)*4.0,0.0,1.0);vec3 p=position;p.y+=(1.0-vV)*4.0;',
+      'vec4 mv=modelViewMatrix*vec4(p,1.0);gl_PointSize=1.8*uPR*(26.0/max(1.0,-mv.z))*(0.4+0.6*vV);',
+      'gl_Position=projectionMatrix*mv;}'].join('\n'),
+    fragmentShader:['varying float vA;varying float vV;',
+      'void main(){vec2 d=gl_PointCoord-vec2(0.5);float m=1.0-smoothstep(0.24,0.5,length(d));',
+      'if(m<=0.003||vV<0.01)discard;float a=abs(vA);',
+      'vec3 c=mix(vec3(0.20,0.46,0.35),vA>0.0?vec3(0.44,0.95,0.70):vec3(1.0,0.78,0.42),clamp(a*1.3,0.0,1.0));',
+      'gl_FragColor=vec4(c,(0.34+a*0.62)*m*vV);}'].join('\n')})));
+  var box = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(SX, NL*2.0+4, SZ)),
+    new THREE.LineBasicMaterial({color:0x1E6B49, transparent:true, opacity:0.55}));
+  box.position.y = -(NL*2.0)/2 + 1; sc.add(box);
+  fitSelf(r, cam, cv);
+  register(cv, function(t){
+    U.uBuild.value = RM ? 1 : clamp((tlP - 0.80)/0.18, 0, 1.15);
+    var rot = RM ? 0.6 : t*0.10;
+    cam.position.set(Math.sin(rot)*34, 10, Math.cos(rot)*34);
+    cam.lookAt(0,-8,0);
+    r.render(sc, cam);
+  });
+}
+
+/* ═════════ lazy scene registry ═════════ */
+var SCENE_MAP = {
+  home:[['hslider',heroSliderInit],['hero',heroScene],['survey',surveyScene],['globe',globeScene]],
+  about:[['core',coreScene]],
+  services:[['ray',rayScene],['trace',traceLab]],
+  technology:[['vol',volumeScene]],
+  projects:[['tl',timelineInit],['fold',foldScene]],
+  operations:[['terr',terrainScene]],
+  qhse:[['zero',zeroScene]],
+  careers:[['path',pathScene]],
+  contact:[['rtk',rtkScene],['form',formInit]]
+};
+var sceneDone = {};
+function initRoute(h){
+  var list = SCENE_MAP[h] || [];
+  for(var i=0;i<list.length;i++){
+    if(sceneDone[list[i][0]]) continue;
+    sceneDone[list[i][0]] = 1;
+    try { list[i][1](); } catch(e) { }
+  }
+}
+
+/* ═════════ boot ═════════ */
+cacheEls();
+route();
+if(HAS3D) requestAnimationFrame(loop);
+onScroll();
+window.addEventListener('load', function(){ primeMotion(); syncVideos(); });
+})();
+</script>
+
+</body>
+</html>
